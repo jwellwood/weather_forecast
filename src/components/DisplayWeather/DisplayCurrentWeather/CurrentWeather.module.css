@@ -1,0 +1,62 @@
+.containerMain {
+  margin: 10px 5%;
+  padding: 0px;
+  width: auto;
+  border: 2px solid #283E51;
+}
+
+.topRow,
+.bottomRow {
+  width: auto;
+  display: flex;
+  justify-content: space-around;
+  background: #AED6F1;
+  border: 1px solid #283E51;
+  padding: 10px;
+}
+
+.topRow {
+  color: #F39C12;
+  background: #283E51;
+}
+
+.bottomRow p {
+  padding: 5px;
+  color: #283E51;
+}
+
+.icon,
+.temp,
+.time {
+  width: 75px;
+  height: 75px;
+  border-radius: 50%;
+  margin: auto;
+  background-color: #AED6F1;
+  border: 2px solid #F39C12;
+}
+
+.time {
+  line-height: 45px;
+  color: #283E51;
+  font-weight: bold;
+}
+
+.temp {
+  color: #283E51;
+  line-height: 79px;
+  font-size: 1.5em;
+}
+
+h1 {
+  margin: 5px;
+}
+
+hr {
+  width: 20%;
+  border: 1px solid #AED6F1;
+}
+
+h3 {
+  margin: 2px;
+}

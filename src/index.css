@@ -1,0 +1,10 @@
+@import url('https://fonts.googleapis.com/css?family=Josefin+Sans');
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Josefin Sans', sans-serif;
+  background: #4B79A1;  /* fallback for old browsers */
+  background: -webkit-linear-gradient(to left, #283E51, rgba(75, 121, 161, 0));  /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(to left, #283E51, #4B79A1); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+}

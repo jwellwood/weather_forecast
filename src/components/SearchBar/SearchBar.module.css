@@ -1,0 +1,16 @@
+.searchBar {
+  background: #283E51;
+  color: #F39C12;
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+  font-size: 1.5em;
+  padding: 5px;
+  width: 50%;  
+  border: 3px solid #F39C12;
+  border-radius: 5px;
+  margin: 0 auto;
+}
+
+.searchBar:focus {
+  border: 3px solid #58D68D;
+  outline: none;
+}
