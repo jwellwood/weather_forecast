@@ -1,0 +1,43 @@
+.SearchContainer {
+  margin: 10px auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.SearchBar {
+  width: 50%;
+  float: left;
+}
+
+.Input,
+.Button {
+  border: #283E51;
+  border-radius: 5px;
+  height: 40px;
+  background: #283E51;
+  color: #82E0AA;
+  padding: 5px;
+  font-size: 20px;
+  font-family: inherit;
+}
+
+.Input:focus {
+  outline: none;
+}
+
+.Button {
+  height: 40px;
+  width: 40px;
+  border-radius: 50%;
+  margin-left: 5px;
+  cursor: pointer;
+}
+
+.SearchedCity {
+  float: right;
+  color: #82E0AA;
+  font-weight: bold;
+  font-size: 1.5em;
+  margin: 5px;
+}

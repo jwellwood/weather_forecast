@@ -1,0 +1,14 @@
+.DateAndTime {
+  padding: 3px;
+  color: #F39C12;
+  font-weight: bold;
+  font-size: 25px;
+  text-align: center;
+  margin: 2px 0px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.Time {
+  color: #82E0AA;
+}

@@ -1,0 +1,14 @@
+.backgroundContainer {
+  width: 100%;
+  height: auto;
+  margin: 10px auto;
+  background-repeat: none;
+}
+
+.backgroundImage {
+  width: 100%;
+  background-size: cover;
+  border: 2px solid #ccc;
+  border-radius: 5px;
+  position: static;
+}
