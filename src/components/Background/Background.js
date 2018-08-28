@@ -1,7 +1,7 @@
 import React from 'react';
 import classes from './Background.module.css';
 
-const Background = props => (
+const Background = () => (
   <div className={classes.backgroundContainer}>
     <img
       alt=""

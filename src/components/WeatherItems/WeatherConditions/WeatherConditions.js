@@ -1,4 +1,6 @@
 import React from 'react';
+import PropTypes from 'prop-types';
+
 import classes from './WeatherConditions.module.css';
 import DateAndTime from '../DateAndTime/DateAndTime';
 import MainIcon from '../MainIcon/MainIcon';
@@ -24,5 +26,7 @@ const weatherConditions = ({ current }) => (
     <div className={classes.Description} />
   </div>
 );
+
+weatherConditions.propTypes = { current: PropTypes.shape({}).isRequired };
 
 export default weatherConditions;

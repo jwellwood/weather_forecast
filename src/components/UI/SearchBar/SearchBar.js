@@ -1,8 +1,10 @@
 import React from 'react';
+import PropTypes from 'prop-types';
+
 import classes from './SearchBar.module.css';
 
 const SearchBar = props => {
-  const { getWeather } = props;
+  const { getWeather, city, country } = props;
   return (
     <div className={classes.SearchContainer}>
       <div className={classes.SearchBar}>
@@ -16,11 +18,17 @@ const SearchBar = props => {
 
       <div className={classes.SearchedCity}>
         <span className={classes.cityCountry}>
-          {props.city} {props.country}
+          {city} {country}
         </span>
       </div>
     </div>
   );
+};
+
+SearchBar.propTypes = {
+  getWeather: PropTypes.func.isRequired,
+  city: PropTypes.string.isRequired,
+  country: PropTypes.string.isRequired,
 };
 
 export default SearchBar;

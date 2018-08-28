@@ -1,7 +1,8 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import classes from './OtherDetails.module.css';
 
-const MainIcon = props => {
+const OtherDetails = props => {
   const { humidity, wind } = props;
   return (
     <div className={classes.OtherDetails}>
@@ -9,10 +10,19 @@ const MainIcon = props => {
         humidity: <span className={classes.Data}>{humidity}%</span>
       </h4>
       <h4>
-        wind speed: <span className={classes.Data}>{wind}kph</span>
+        wind speed:{' '}
+        <span className={classes.Data}>
+          {wind}
+          kph
+        </span>
       </h4>
     </div>
   );
 };
 
-export default MainIcon;
+OtherDetails.propTypes = {
+  humidity: PropTypes.number.isRequired,
+  wind: PropTypes.string.isRequired,
+};
+
+export default OtherDetails;

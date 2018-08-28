@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 import { Button, Modal } from 'semantic-ui-react';
 import ForecastBar from '../ForecastBar/ForecastBar';
 import classes from './Modal.module.css';
@@ -12,7 +13,7 @@ class WeatherModal extends Component {
 
   render() {
     const { open, dimmer } = this.state;
-    const { city, country, forecast } = this.props;
+    const { forecast } = this.props;
 
     return (
       <div>
@@ -24,5 +25,7 @@ class WeatherModal extends Component {
     );
   }
 }
+
+WeatherModal.propTypes = { forecast: PropTypes.array.isRequired };
 
 export default WeatherModal;

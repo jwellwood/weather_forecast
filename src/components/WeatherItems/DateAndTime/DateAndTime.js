@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import classes from './DateAndTime.module.css';
 
 const DateAndTime = props => {
@@ -9,6 +10,11 @@ const DateAndTime = props => {
       <p className={classes.Time}>{time}</p>
     </div>
   );
+};
+
+DateAndTime.propTypes = {
+  date: PropTypes.string.isRequired,
+  time: PropTypes.string.isRequired,
 };
 
 export default DateAndTime;

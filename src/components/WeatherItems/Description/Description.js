@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import classes from './Description.module.css';
 
 const Description = props => {
@@ -11,5 +12,7 @@ const Description = props => {
     </div>
   );
 };
+
+Description.propTypes = { description: PropTypes.string.isRequired };
 
 export default Description;
