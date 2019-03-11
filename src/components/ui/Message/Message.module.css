@@ -1,0 +1,10 @@
+.Container {
+  padding: 0px;
+}
+
+.Message {
+  background: #D35400;
+  color: #ccc;
+  border-radius: 5px;
+  padding: 5px;
+}

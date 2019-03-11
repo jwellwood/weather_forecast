@@ -1,0 +1,9 @@
+.Modal {
+  background-color: transparent !important;
+  border: none !important;
+  box-shadow: 0 !important;
+}
+
+.Button {
+  width: 100%;
+}
