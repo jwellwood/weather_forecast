@@ -37,7 +37,7 @@ class App extends Component {
       temp: currentDetails.temp.toFixed(0),
       description: currentConditions.description,
       humidity: currentDetails.humidity,
-      wind: currentWeather.wind.speed.toFixed(1),
+      wind: (currentWeather.wind.speed * 3.6).toFixed(1),
     };
     // Forecast data
     const forecasts = res.data.list.slice(1, 9);

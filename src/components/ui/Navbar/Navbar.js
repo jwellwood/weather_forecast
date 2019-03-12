@@ -34,7 +34,7 @@ class MainNavbar extends Component {
           name="link"
           active={activeItem === 'link'}
         >
-          <i class="fab fa-github" />
+          <i className="fab fa-github" />
         </Menu.Item>
       </Menu>
     );
