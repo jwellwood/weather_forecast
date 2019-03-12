@@ -1,50 +1,44 @@
-import React from 'react';
-import {
-  Collapse,
-  Navbar,
-  NavbarToggler,
-  NavbarBrand,
-  Nav,
-  NavItem,
-  NavLink,
-} from 'reactstrap';
+import React, { Component } from 'react';
+import { Menu } from 'semantic-ui-react';
 import Logo from '../Logo/Logo';
-import classes from './Navbar.module.css';
 
-export default class Example extends React.Component {
-  state = { collapsed: true };
+class MainNavbar extends Component {
+  state = {};
 
-  toggleNavbar = () => {
-    const { collapsed } = this.state;
-    this.setState({ collapsed: !collapsed });
-  };
+  handleItemClick = (e, { name }) => this.setState({ activeItem: name });
 
   render() {
-    const { collapsed } = this.state;
+    const { activeItem } = this.state;
+
     return (
-      <div>
-        <Navbar className={classes.Navbar}>
-          <NavbarBrand href="/" className="mr-auto">
-            <Logo />
-          </NavbarBrand>
-          <NavbarToggler
-            onClick={this.toggleNavbar}
-            className={classes.Navlink}
-          />
-          <Collapse isOpen={!collapsed} navbar>
-            <Nav navbar>
-              <NavItem>
-                <NavLink href="/components/">Components</NavLink>
-              </NavItem>
-              <NavItem>
-                <NavLink href="https://github.com/reactstrap/reactstrap">
-                  GitHub
-                </NavLink>
-              </NavItem>
-            </Nav>
-          </Collapse>
-        </Navbar>
-      </div>
+      <Menu inverted style={{ borderRadius: '0px' }}>
+        <Menu.Item
+          name="logo"
+          active={activeItem === 'logo'}
+          onClick={this.handleItemClick}
+        >
+          <Logo />
+        </Menu.Item>
+
+        <Menu.Item
+          position="right"
+          name="about"
+          active={activeItem === 'about'}
+          onClick={this.handleItemClick}
+        >
+          About
+        </Menu.Item>
+
+        <Menu.Item
+          href="https://github.com/jwellwood/weather_forecast"
+          name="link"
+          active={activeItem === 'link'}
+        >
+          <i class="fab fa-github" />
+        </Menu.Item>
+      </Menu>
     );
   }
 }
+
+export default MainNavbar;
