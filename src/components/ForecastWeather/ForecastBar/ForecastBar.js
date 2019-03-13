@@ -6,20 +6,16 @@ const ForecastBar = ({ forecast }) => (
     {forecast.map(data => {
       const unixTime = new Date(data.dt * 1000);
       const dates = unixTime.toDateString();
-
+      let dayOrNight = data.weather[0].icon;
+      let icon = `wi wi-owm-${data.weather[0].id}`;
+      if (dayOrNight.includes('n')) {
+        icon = `wi wi-owm-night-${data.weather[0].id}`;
+      }
       return (
         <div key={unixTime} className={classes.OutsideContainer}>
           <div className={classes.ForecastContainer}>
             <div>
-              <img
-                src={`https://openweathermap.org/img/w/${
-                  data.weather[0].icon
-                }.png`}
-                alt="icon"
-                className={classes.Image}
-              />
-              {/* <i className={`owf owf-${data.weather[0].id}`} /> */}
-              {console.log(data.weather[0])}
+              <i className={icon} />
             </div>
             <div className={classes.DateAndTime}>
               <p className={classes.Date}>

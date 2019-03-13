@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import axios from 'axios';
 import Navbar from '../components/ui/Navbar/Navbar';
 import SearchBar from '../components/SearchBar/SearchBar';
-import Background from '../components/ui/Background/Background';
 import CurrentWeather from '../components/CurrentWeather/CurrentWeather';
 import ForecastDropdown from '../components/ui/ForecastDropdown/ForecastDropdown';
 
@@ -29,16 +28,18 @@ class App extends Component {
     const date = dateDetails.toLocaleDateString();
     const time = dateDetails.toLocaleTimeString();
     const currentConditions = currentWeather.weather[0];
+    console.log(currentConditions);
     const currentDetails = currentWeather.main;
     const currentData = {
       date,
       time,
-      icon: currentConditions.icon,
+      icon: currentConditions.id,
       temp: currentDetails.temp.toFixed(0),
       description: currentConditions.description,
       humidity: currentDetails.humidity,
       wind: (currentWeather.wind.speed * 3.6).toFixed(1),
     };
+    console.log(currentData.icon);
     // Forecast data
     const forecasts = res.data.list.slice(1, 9);
     const forecastData = forecasts.map(forecast => ({ ...forecast }));
@@ -53,24 +54,6 @@ class App extends Component {
 
   render() {
     const { city, country, currentData, forecastData } = this.state;
-
-    let weatherCurrent = <Background />;
-    if (city.length !== 0) {
-      weatherCurrent = <CurrentWeather current={currentData} />;
-    }
-
-    // let weatherForecast = <Message />;
-    // if (city.length !== 0) {
-    //   weatherForecast = (
-    //     <Forecast
-    //       city={city}
-    //       country={country}
-    //       current={currentData}
-    //       forecast={forecastData}
-    //     />
-    //   );
-    // }
-
     return (
       <div>
         <Navbar />
@@ -80,10 +63,10 @@ class App extends Component {
             city={city}
             country={country}
           />
-
-          {/* {weatherForecast} */}
-          {weatherCurrent}
-          <ForecastDropdown forecast={forecastData} />
+          {city.length !== 0 ? <CurrentWeather current={currentData} /> : null}
+          {forecastData.length !== 0 ? (
+            <ForecastDropdown forecast={forecastData} />
+          ) : null}
         </div>
       </div>
     );

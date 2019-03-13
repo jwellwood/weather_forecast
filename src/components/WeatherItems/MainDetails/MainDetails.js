@@ -15,12 +15,13 @@ const MainDetails = props => {
             </h1>
           </Col>
           <Col xs="6" sm="4">
-            {/* <i className={`owf owf-${icon} owf-5x ${classes.MainIcon}`} /> */}
-            <img
+            <i className={`wi wi-owm-${icon}`} style={{ fontSize: '40px' }} />
+
+            {/* <img
               className={classes.MainIcon}
               src={`https://openweathermap.org/img/w/${icon}.png`}
               alt="icon"
-            />
+            /> */}
           </Col>
           <Col sm="4">
             {' '}
