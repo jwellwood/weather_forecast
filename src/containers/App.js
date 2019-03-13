@@ -2,10 +2,11 @@ import React, { Component } from 'react';
 import axios from 'axios';
 import Navbar from '../components/ui/Navbar/Navbar';
 import SearchBar from '../components/SearchBar/SearchBar';
-import Forecast from '../components/Forecast/Forecast';
 import Background from '../components/ui/Background/Background';
-import Message from '../components/ui/Message/Message';
-import CurrentWeather from '../components/WeatherItems/CurrentWeather';
+import CurrentWeather from '../components/CurrentWeather/CurrentWeather';
+import ForecastDropdown from '../components/ui/ForecastDropdown/ForecastDropdown';
+
+const apiKey = process.env.REACT_APP_WEATHER_API_KEY;
 
 class App extends Component {
   state = {
@@ -17,7 +18,6 @@ class App extends Component {
 
   getWeather = async e => {
     e.preventDefault();
-    const apiKey = '06f22ef29c5b9509b8a81d45728d9372';
     const city = e.target.city.value;
     const res = await axios.get(
       `https://api.openweathermap.org/data/2.5/forecast?q=${city}&units=metric&APPID=${apiKey}`,
@@ -59,29 +59,31 @@ class App extends Component {
       weatherCurrent = <CurrentWeather current={currentData} />;
     }
 
-    let weatherForecast = <Message />;
-    if (city.length !== 0) {
-      weatherForecast = (
-        <Forecast
-          city={city}
-          country={country}
-          current={currentData}
-          forecast={forecastData}
-        />
-      );
-    }
+    // let weatherForecast = <Message />;
+    // if (city.length !== 0) {
+    //   weatherForecast = (
+    //     <Forecast
+    //       city={city}
+    //       country={country}
+    //       current={currentData}
+    //       forecast={forecastData}
+    //     />
+    //   );
+    // }
 
     return (
       <div>
         <Navbar />
-        <div className="App">
+        <div>
           <SearchBar
             getWeather={this.getWeather}
             city={city}
             country={country}
           />
-          {weatherForecast}
+
+          {/* {weatherForecast} */}
           {weatherCurrent}
+          <ForecastDropdown forecast={forecastData} />
         </div>
       </div>
     );

@@ -2,11 +2,11 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 import classes from './CurrentWeather.module.css';
-import DateAndTime from './DateAndTime/DateAndTime';
-import OtherDetails from './OtherDetails/OtherDetails';
-import MainDetails from './MainDetails/MainDetails';
+import DateAndTime from '../WeatherItems/DateAndTime/DateAndTime';
+import OtherDetails from '../WeatherItems/OtherDetails/OtherDetails';
+import MainDetails from '../WeatherItems/MainDetails/MainDetails';
 
-const weatherConditions = ({ current }) => {
+const CurrentWeather = ({ current }) => {
   const { date, time, temp, icon, description, humidity, wind } = current;
   console.log(icon);
   return (
@@ -25,6 +25,6 @@ const weatherConditions = ({ current }) => {
   );
 };
 
-weatherConditions.propTypes = { current: PropTypes.shape({}).isRequired };
+CurrentWeather.propTypes = { current: PropTypes.shape({}).isRequired };
 
-export default weatherConditions;
+export default CurrentWeather;

@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { Menu } from 'semantic-ui-react';
-import Logo from '../Logo/Logo';
+import Logo from './Logo/Logo';
 
 class MainNavbar extends Component {
   state = {};
