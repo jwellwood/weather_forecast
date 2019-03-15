@@ -1,73 +1,74 @@
 import React, { Component } from 'react';
 import axios from 'axios';
-import Navbar from '../components/ui/Navbar/Navbar';
-import SearchBar from '../components/SearchBar/SearchBar';
-import CurrentWeather from '../components/CurrentWeather/CurrentWeather';
-import ForecastDropdown from '../components/ui/ForecastDropdown/ForecastDropdown';
+import MainPage from '../components/MainPage/index';
 
 const apiKey = process.env.REACT_APP_WEATHER_API_KEY;
-
+const initialState = {
+  city: '',
+  country: '',
+  currentData: {},
+  forecastData: [],
+  error: false,
+};
 class App extends Component {
   state = {
-    city: '',
-    country: '',
-    currentData: [],
-    forecastData: [],
+    ...initialState,
   };
 
-  getWeather = async e => {
+  getCurrentWeather = e => {
     e.preventDefault();
     const city = e.target.city.value;
-    const res = await axios.get(
-      `https://api.openweathermap.org/data/2.5/forecast?q=${city}&units=metric&APPID=${apiKey}`,
-    );
-    const cityInfo = res.data.city;
-    // Current weather calls
-    const currentWeather = res.data.list[0];
-    const dateDetails = new Date(currentWeather.dt * 1000);
-    const date = dateDetails.toLocaleDateString();
-    const time = dateDetails.toLocaleTimeString();
-    const currentConditions = currentWeather.weather[0];
-    console.log(currentConditions);
-    const currentDetails = currentWeather.main;
-    const currentData = {
-      date,
-      time,
-      icon: currentConditions.id,
-      temp: currentDetails.temp.toFixed(0),
-      description: currentConditions.description,
-      humidity: currentDetails.humidity,
-      wind: (currentWeather.wind.speed * 3.6).toFixed(1),
-    };
-    console.log(currentData.icon);
-    // Forecast data
-    const forecasts = res.data.list.slice(1, 9);
-    const forecastData = forecasts.map(forecast => ({ ...forecast }));
-    // set State
+    axios
+      .get(
+        `https://api.openweathermap.org/data/2.5/weather?q=${city}&units=metric&appid=${apiKey}`,
+      )
+      .then(res => {
+        this.setState({
+          ...initialState,
+          city: res.data.name,
+          currentData: res.data,
+        });
+      })
+      .catch(() => this.setState({ error: true }));
+  };
+
+  getForecast = e => {
+    e.preventDefault();
+    const { city } = this.state;
+    if (city !== '') {
+      axios
+        .get(
+          `https://api.openweathermap.org/data/2.5/forecast?q=${city}&units=metric&APPID=${apiKey}`,
+        )
+        .then(res => {
+          const forecastData = res.data.list.slice(0, 8);
+          this.setState({
+            forecastData: forecastData,
+          });
+        })
+        .catch(() => this.setState({ error: true }));
+    }
+  };
+
+  onReset = () => {
     this.setState({
-      city: cityInfo.name,
-      country: cityInfo.country,
-      currentData,
-      forecastData,
+      ...initialState,
     });
   };
 
   render() {
-    const { city, country, currentData, forecastData } = this.state;
+    const { city, currentData, forecastData, error } = this.state;
     return (
       <div>
-        <Navbar />
-        <div>
-          <SearchBar
-            getWeather={this.getWeather}
-            city={city}
-            country={country}
-          />
-          {city.length !== 0 ? <CurrentWeather current={currentData} /> : null}
-          {forecastData.length !== 0 ? (
-            <ForecastDropdown forecast={forecastData} />
-          ) : null}
-        </div>
+        <MainPage
+          city={city}
+          currentData={currentData}
+          forecastData={forecastData}
+          getCurrentWeather={this.getCurrentWeather}
+          getForecast={this.getForecast}
+          onReset={this.onReset}
+          error={error}
+        />
       </div>
     );
   }
