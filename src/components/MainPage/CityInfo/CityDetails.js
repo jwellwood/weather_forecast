@@ -10,10 +10,6 @@ const CityDetails = props => {
           {details.city}, {details.country}
         </div>
 
-        <div>
-          LAT: {details.latitude} / LON:{details.longitude}
-        </div>
-
         <div>{details.sunrise}</div>
         <div>{details.sunset}</div>
       </div>

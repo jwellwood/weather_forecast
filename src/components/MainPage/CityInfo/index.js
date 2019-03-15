@@ -1,8 +1,9 @@
 import React from 'react';
 import CityDetails from './CityDetails';
+import Map from './Map';
 
 const CityInfo = props => {
-  const { data } = props;
+  const { data, apiKey } = props;
   const city = data.name;
   const country = data.sys.country;
   const sunriseUnix = new Date(data.sys.sunrise * 1000);
@@ -23,9 +24,8 @@ const CityInfo = props => {
 
   return (
     <div>
-      <div>
-        <CityDetails details={cityDetails} />
-      </div>
+      <CityDetails details={cityDetails} />
+      <Map latitude={cityDetails.latitude} longitude={cityDetails.longitude} />
     </div>
   );
 };

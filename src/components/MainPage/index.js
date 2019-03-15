@@ -9,7 +9,6 @@ import PageContainer from '../hoc/PageContainer';
 
 const MainPage = props => {
   const { currentData, forecastData, getForecast } = props;
-
   return (
     <div>
       <MainNavbar />
@@ -18,15 +17,9 @@ const MainPage = props => {
       </PageContainer>
       {currentData.name ? (
         <PageContainer>
-          <div>
-            <CityInfo data={currentData} />
-          </div>
-          <div>
-            <CurrentWeather data={currentData} />
-          </div>
-          <div>
-            <Forecast data={forecastData} getForecast={getForecast} />
-          </div>
+          <CityInfo data={currentData} />
+          <CurrentWeather data={currentData} />
+          <Forecast data={forecastData} getForecast={getForecast} />
         </PageContainer>
       ) : (
         <Landing />
