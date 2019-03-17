@@ -4,7 +4,7 @@ import { Container, Row, Col } from 'reactstrap';
 const PageContainer = props => {
   const { children } = props;
   return (
-    <Container style={{ padding: 0 }}>
+    <Container style={{ padding: '2px' }}>
       <Col
         style={{ textAlign: 'center', margin: 'auto', padding: 0 }}
         xs="12"

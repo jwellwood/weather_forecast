@@ -15,15 +15,17 @@ const MainPage = props => {
       <PageContainer>
         <SearchBar {...props} />
       </PageContainer>
-      {currentData.name ? (
-        <PageContainer>
-          <CityInfo data={currentData} />
-          <CurrentWeather data={currentData} />
-          <Forecast data={forecastData} getForecast={getForecast} />
-        </PageContainer>
-      ) : (
-        <Landing />
-      )}
+      <PageContainer>
+        {currentData.name ? (
+          <div>
+            <CityInfo data={currentData} />
+            <CurrentWeather data={currentData} />
+            <Forecast data={forecastData} getForecast={getForecast} />
+          </div>
+        ) : (
+          <Landing />
+        )}
+      </PageContainer>
     </div>
   );
 };

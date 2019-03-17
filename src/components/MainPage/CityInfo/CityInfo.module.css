@@ -1,0 +1,9 @@
+.CityDetails {
+  font-size: 30px;
+  margin: 10px auto;
+  display: flex;
+  align-items: center;
+  align-content: center;
+  justify-content: space-evenly;
+  font-family: 'Fredoka One', cursive;
+}
