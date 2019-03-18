@@ -17,12 +17,12 @@ const SearchBar = props => {
         <InputGroup>
           <Input name="city" placeholder="Search..." />
           <InputGroupAddon addonType="append">
-            <Button type="submit" color="warning">
+            <Button type="submit" color="primary">
               <i className="fas fa-search" />
             </Button>
           </InputGroupAddon>
           <InputGroupAddon addonType="append">
-            <Button type="reset" color="danger" onClick={onReset}>
+            <Button type="reset" onClick={onReset}>
               <i className="fas fa-undo-alt" />
             </Button>
           </InputGroupAddon>

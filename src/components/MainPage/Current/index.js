@@ -1,17 +1,21 @@
 import React from 'react';
-//   const dateDetails = new Date(currentWeather.dt * 1000);
-//   const date = dateDetails.toLocaleDateString();
-//   const time = dateDetails.toLocaleTimeString();
-//
-// const dates = ;
-const CurrentWeather = props => {
+import IconAndTemp from './IconAndTemp';
+import DateAndTime from './DateAndTime';
+import OtherDetails from './OtherDetails';
+
+const Current = props => {
   const { data } = props;
-  console.log(data);
   const clouds = data.clouds.all;
   const unixTime = new Date(data.dt * 1000);
-
   const date = unixTime.toDateString();
   const time = unixTime.toLocaleTimeString().slice(0, 5);
+
+  const sunriseUnix = new Date(data.sys.sunrise * 1000);
+  console.log(sunriseUnix);
+  const sunsetUnix = new Date(data.sys.sunset * 1000);
+  const sunrise = sunriseUnix.toLocaleTimeString().slice(0, 5);
+  const sunset = sunsetUnix.toLocaleTimeString().slice(0, 5);
+
   const visibility = (data.visibility / 1000).toLocaleString();
   const temp = data.main.temp;
   const roundedTemp = data.main.temp.toFixed(0);
@@ -27,30 +31,37 @@ const CurrentWeather = props => {
   const weatherIcon = iconCode.includes('n')
     ? `wi wi-owm-night-${iconId}`
     : `wi wi-owm-${iconId}`;
+
+  const details = {
+    date,
+    time,
+    sunrise,
+    sunset,
+    temp,
+    roundedTemp,
+    fahrenheit,
+    roundedFahrenheit,
+    weatherIcon,
+    description,
+    visibility,
+    clouds,
+    humidity,
+    pressure,
+    windSpeed,
+    windDirection,
+  };
+
   return (
-    <div style={{ border: '1px solid black' }}>
-      CURRENT WEATHER
-      <div>Clouds: {clouds}%</div>
-      <div>My Date: {date}</div>
-      <div>My Time: {time}</div>
-      <div>Vis: {visibility}km</div>
-      <div>Pressure: {pressure}hPa</div>
-      <div>temp: {temp}ºC</div>
-      <div>Rounded: {roundedTemp}ºC</div>
-      <div>temp: {fahrenheit}ºF</div>
-      <div>Rounded: {roundedFahrenheit}ºF</div>
-      <div>humid: {humidity}%</div>
-      <div>wind: {windSpeed}kph</div>
-      <div>wind Direction: {windDirection}º</div>
-      <div>{description}</div>
-      <div>
-        <i
-          className={`wi wi-owm-${weatherIcon}`}
-          style={{ fontSize: '40px' }}
-        />
-      </div>
+    <div>
+      <DateAndTime date={details.date} time={details.time} />
+      <IconAndTemp
+        details={details}
+        sunrise={details.sunrise}
+        sunset={details.sunset}
+      />
+      <OtherDetails details={details} />
     </div>
   );
 };
 
-export default CurrentWeather;
+export default Current;

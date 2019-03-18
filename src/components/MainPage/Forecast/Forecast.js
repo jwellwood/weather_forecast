@@ -5,7 +5,6 @@ const Forecast = props => {
   const { data, getForecast } = props;
   return (
     <div>
-      FORECAST
       <Button onClick={getForecast}>Forecast</Button>
       {data.map(data => {
         const dateUnix = new Date(data.dt * 1000);
