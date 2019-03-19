@@ -8,17 +8,19 @@ const Temp = props => {
     <Container className={classes.TempBox}>
       <Row className={classes.MainTemp}>
         <Col>
-          {roundedCel}
-          <span className={classes.TempSymbol}>ºC</span>
+          <div>
+            {roundedCel}
+            <span className={classes.TempSymbol}>ºC</span>
+          </div>
+          <div className={classes.ExactTemp}>{celcius}</div>
         </Col>
         <Col>
-          {roundedFah}
-          <span className={classes.TempSymbol}>ºF</span>
+          <div>
+            {roundedFah}
+            <span className={classes.TempSymbol}>ºF</span>
+          </div>
+          <div className={classes.ExactTemp}>{fahrenheit}</div>
         </Col>
-      </Row>
-      <Row className={classes.ExactTemp}>
-        <Col>{celcius}</Col>
-        <Col>{fahrenheit}</Col>
       </Row>
     </Container>
   );

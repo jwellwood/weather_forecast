@@ -3,17 +3,16 @@
   align-items: center;
   align-content: center;
   border: 1px solid;
-  background: #333;
+  background: #100 url('https://image.ibb.co/mjnygo/stars.png') repeat top center;
   padding: 5px;
 }
 
 .TempBox {
-
   border: 1px solid;
   border-radius: 5px;
   width: 100%;
   padding: 5px;
-  background: #333;
+  background: #111;
 }
 
 .TempSymbol {
@@ -21,11 +20,12 @@
 }
 
 .MainTemp {
-  font-size: 22px;
+  font-size: 25px;
+  font-weight: bold;
 }
 
 .ExactTemp {
-  font-family: Mukta;
+  font-family: 'Cutive Mono', monospace;
   font-size: 12px;
   font-weight: lighter;
 }

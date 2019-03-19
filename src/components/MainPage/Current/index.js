@@ -53,12 +53,13 @@ const Current = props => {
 
   return (
     <div>
-      <DateAndTime date={details.date} time={details.time} />
-      <IconAndTemp
-        details={details}
+      <DateAndTime
+        date={details.date}
+        time={details.time}
         sunrise={details.sunrise}
         sunset={details.sunset}
       />
+      <IconAndTemp details={details} />
       <OtherDetails details={details} />
     </div>
   );

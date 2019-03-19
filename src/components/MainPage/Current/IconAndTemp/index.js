@@ -11,9 +11,6 @@ const IconAndTemp = props => {
       <Row className={classes.Container}>
         <Col>
           <Icon icon={details.weatherIcon} desc={details.description} />
-          <i className="wi wi-sunrise" id="sunrise" /> {sunrise}
-          <i className="wi wi-sunset" id="sunset" />
-          {sunset}
         </Col>
         <Col>
           <Temp

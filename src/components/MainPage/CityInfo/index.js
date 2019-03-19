@@ -10,8 +10,8 @@ const CityInfo = props => {
   const sunsetUnix = new Date(data.sys.sunset * 1000);
   const sunrise = sunriseUnix.toLocaleTimeString().slice(0, 5);
   const sunset = sunsetUnix.toLocaleTimeString().slice(0, 5);
-  const longitude = data.coord.lon;
   const latitude = data.coord.lat;
+  const longitude = data.coord.lon;
 
   const cityDetails = {
     city,
@@ -23,7 +23,7 @@ const CityInfo = props => {
   };
 
   return (
-    <div>
+    <div style={{ padding: '10px' }}>
       <CityDetails details={cityDetails} />
     </div>
   );

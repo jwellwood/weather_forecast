@@ -22,7 +22,7 @@ const OtherDetails = props => {
     <Container>
       <Row className={classes.Container}>
         {listItems.map(item => (
-          <Col key={item.value}>
+          <Col key={Math.random()}>
             <div>
               <i className={item.icon} />
               <div>

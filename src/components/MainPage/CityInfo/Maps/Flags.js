@@ -7,10 +7,8 @@ const Flags = props => {
       code={code}
       svg
       styleProps={{
-        width: '30px',
-        height: '30px',
-        borderRadius: '50%',
-        backgroundColor: '#fff',
+        width: '40px',
+        height: '40px',
       }}
     />
   );
