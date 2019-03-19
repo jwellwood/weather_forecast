@@ -9,14 +9,16 @@ const DateAndTime = props => {
         <div>{date}</div>
         <div className={classes.Time}>{time}</div>
       </div>
-      <div>
-        <span>{sunrise} </span>
-        <i
-          className={`wi wi-sunrise ${classes.Icons} ${classes.Sunrise}`}
-        />{' '}
-        <i className={`wi wi-sunset ${classes.Icons} ${classes.Sunset}`} />
-        <span> {sunset}</span>
-      </div>
+      {sunrise || sunset ? (
+        <div>
+          <span>{sunrise} </span>
+          <i
+            className={`wi wi-sunrise ${classes.Icons} ${classes.Sunrise}`}
+          />{' '}
+          <i className={`wi wi-sunset ${classes.Icons} ${classes.Sunset}`} />
+          <span> {sunset}</span>
+        </div>
+      ) : null}
     </div>
   );
 };

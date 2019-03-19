@@ -11,7 +11,6 @@ const Current = props => {
   const time = unixTime.toLocaleTimeString().slice(0, 5);
 
   const sunriseUnix = new Date(data.sys.sunrise * 1000);
-  console.log(sunriseUnix);
   const sunsetUnix = new Date(data.sys.sunset * 1000);
   const sunrise = sunriseUnix.toLocaleTimeString().slice(0, 5);
   const sunset = sunsetUnix.toLocaleTimeString().slice(0, 5);

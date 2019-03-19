@@ -22,6 +22,7 @@ const MapContainer = props => {
           google={google}
           zoom={10}
           styles={mapStyle}
+          initialCenter={{ lat: latitude, lng: longitude }}
           center={{
             lat: latitude,
             lng: longitude,

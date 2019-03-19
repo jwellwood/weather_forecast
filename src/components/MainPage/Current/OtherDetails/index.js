@@ -24,10 +24,10 @@ const OtherDetails = props => {
         {listItems.map(item => (
           <Col key={Math.random()}>
             <div>
-              <i className={item.icon} />
-              <div>
+              <i className={item.icon + ' ' + classes.Icon} />
+              <div className={classes.Value}>
                 {item.value}
-                <span>{item.tag}</span>
+                <span className={classes.Tag}>{item.tag}</span>
               </div>
             </div>
           </Col>

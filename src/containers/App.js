@@ -58,7 +58,6 @@ class App extends Component {
 
   render() {
     const { city, currentData, forecastData, error } = this.state;
-    console.log();
     return (
       <div>
         <MainPage

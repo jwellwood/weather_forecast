@@ -1,19 +1,22 @@
 import React from 'react';
 import { Container, Row, Col } from 'reactstrap';
-import Icon from './Icon';
-import Temp from './Temp';
+import Display from './Display';
 import classes from './IconAndTemp.module.css';
+import background from '../../../../assets/styles/Background.module.css';
 
 const IconAndTemp = props => {
-  const { details, sunset, sunrise } = props;
+  const { details } = props;
+  let backgroundImage = background.Day;
+  if (details.weatherIcon.includes('night')) {
+    backgroundImage = background.Night;
+  }
   return (
     <Container>
-      <Row className={classes.Container}>
+      <Row className={classes.Container + ' ' + backgroundImage}>
         <Col>
-          <Icon icon={details.weatherIcon} desc={details.description} />
-        </Col>
-        <Col>
-          <Temp
+          <Display
+            icon={details.weatherIcon}
+            desc={details.description}
             celcius={details.temp}
             roundedCel={details.roundedTemp}
             fahrenheit={details.fahrenheit}

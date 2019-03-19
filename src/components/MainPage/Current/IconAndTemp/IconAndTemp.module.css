@@ -3,16 +3,17 @@
   align-items: center;
   align-content: center;
   border: 1px solid;
-  background: #100 url('https://image.ibb.co/mjnygo/stars.png') repeat top center;
   padding: 5px;
 }
 
-.TempBox {
-  border: 1px solid;
-  border-radius: 5px;
+.Desc {
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+
+.MainBox {
   width: 100%;
   padding: 5px;
-  background: #111;
 }
 
 .TempSymbol {

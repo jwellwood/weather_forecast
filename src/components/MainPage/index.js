@@ -2,7 +2,7 @@ import React from 'react';
 import SearchBar from './Search/SearchBar';
 import CityInfo from './CityInfo/';
 import CurrentWeather from './Current';
-import Forecast from './Forecast/Forecast';
+import Forecast from './Forecast';
 import MainNavbar from '../ui/Navbar/Navbar';
 import Landing from './Landing/Landing';
 import PageContainer from '../hoc/PageContainer';
