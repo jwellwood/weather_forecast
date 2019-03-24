@@ -1,38 +1,56 @@
 import React from 'react';
-import { Container, Row, Col } from 'reactstrap';
-import classes from './IconAndTemp.module.css';
+import { withStyles } from '@material-ui/core/styles';
+import Grid from '@material-ui/core/Grid';
 import Icon from './Icon';
+import Paper from '@material-ui/core/Paper';
+import Temp from './Temp';
+import background from '../../../../assets/styles/Background.module.css';
+
+const styles = theme => ({
+  root: {
+    // backgroundImage: background,
+  },
+});
 
 const Display = props => {
-  const { celcius, fahrenheit, roundedCel, roundedFah, icon, desc } = props;
+  const {
+    classes,
+    celcius,
+    fahrenheit,
+    roundedCel,
+    roundedFah,
+    icon,
+    desc,
+  } = props;
+  let backgroundImage = background.Day;
+  if (icon.includes('night')) {
+    backgroundImage = background.Night;
+  }
   return (
-    <Container className={classes.MainBox}>
-      <Row className={classes.MainTemp}>
-        <Col>
-          <div>
-            {roundedCel}
-            <span className={classes.TempSymbol}>ºC</span>
-          </div>
-          <div className={classes.ExactTemp}>{celcius}</div>
-        </Col>
-        <Col>
-          <Icon icon={icon} desc={desc} />
-        </Col>
-        <Col>
-          <div>
-            {roundedFah}
-            <span className={classes.TempSymbol}>ºF</span>
-          </div>
-          <div className={classes.ExactTemp}>{fahrenheit}</div>
-        </Col>
-      </Row>
-      <Row>
-        <Col>
+    <Paper>
+      <div className={backgroundImage}>
+        <Grid
+          container
+          direction="row"
+          justify="space-evenly"
+          alignItems="center"
+        >
+          <Grid item xs={3}>
+            <Temp mainTemp={roundedCel} exactTemp={celcius} symbol="C" />
+          </Grid>
+          <Grid item xs={6}>
+            <Icon icon={icon} desc={desc} />
+          </Grid>
+          <Grid item xs={3}>
+            <Temp mainTemp={roundedFah} exactTemp={fahrenheit} symbol="F" />
+          </Grid>
+        </Grid>
+        <Grid>
           <div className={classes.Desc}>{desc}</div>
-        </Col>
-      </Row>
-    </Container>
+        </Grid>
+      </div>
+    </Paper>
   );
 };
 
-export default Display;
+export default withStyles(styles)(Display);

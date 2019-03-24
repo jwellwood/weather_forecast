@@ -1,0 +1,18 @@
+.Container {
+  display: flexbox;
+  box-sizing: border-box;
+  margin: auto;
+  width: 100%;
+  justify-items: space-evenly;
+  justify-content: space-evenly;
+  align-items: flex-start;
+  align-content: flex-start;
+  border: 1px solid;
+  background: #222;
+}
+
+.Card {
+  box-sizing: border-box;
+  padding: 0;
+  min-width: 66px;
+}

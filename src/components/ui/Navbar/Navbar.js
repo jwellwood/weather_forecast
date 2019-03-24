@@ -1,18 +1,38 @@
 import React from 'react';
-import { Navbar, NavItem, NavbarBrand, Nav } from 'reactstrap';
+import PropTypes from 'prop-types';
+import AppBar from '@material-ui/core/AppBar';
+import Toolbar from '@material-ui/core/Toolbar';
+import { withStyles } from '@material-ui/core/styles';
 import Logo from './Logo/Logo';
+import SearchBar from './Search/SearchBar';
+
+const styles = theme => ({
+  root: {
+    width: '100%',
+    display: 'flex',
+  },
+  bar: {
+    justifyContent: 'space-between',
+    padding: theme.spacing.unit,
+  },
+});
 
 const MainNavbar = props => {
+  const { classes } = props;
   return (
-    <Navbar>
-      <NavbarBrand>
-        <Logo />
-      </NavbarBrand>
-      <Nav>
-        <NavItem>About</NavItem>
-      </Nav>
-    </Navbar>
+    <div className={classes.root}>
+      <AppBar position="static">
+        <Toolbar className={classes.bar}>
+          <Logo />
+          <SearchBar {...props} />
+        </Toolbar>
+      </AppBar>
+    </div>
   );
 };
 
-export default MainNavbar;
+MainNavbar.propTypes = {
+  classes: PropTypes.object.isRequired,
+};
+
+export default withStyles(styles)(MainNavbar);

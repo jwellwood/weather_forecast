@@ -1,5 +1,6 @@
 import React from 'react';
 import { Map, GoogleApiWrapper } from 'google-maps-react';
+import Paper from '@material-ui/core/Paper';
 import mapStyle from './mapStyle.json';
 import Spinner from '../../../ui/Spinner/Spinner';
 const apiKey = process.env.REACT_APP_MAP_API_KEY;
@@ -7,16 +8,14 @@ const apiKey = process.env.REACT_APP_MAP_API_KEY;
 const MapContainer = props => {
   const { google, latitude, longitude } = props;
   return (
-    <div style={{ position: 'relative', margin: 'auto' }}>
+    <Paper elevation={17} style={{ position: 'relative', margin: 'auto' }}>
       {google && latitude && longitude ? (
         <Map
           style={{
-            width: '160px',
-            height: '140px',
+            width: '50%',
+            height: '180px',
             position: 'relative',
             margin: 'auto',
-            border: '2px solid black',
-            borderRadius: '10px',
             float: 'right',
           }}
           google={google}
@@ -31,7 +30,7 @@ const MapContainer = props => {
       ) : (
         <Spinner />
       )}
-    </div>
+    </Paper>
   );
 };
 

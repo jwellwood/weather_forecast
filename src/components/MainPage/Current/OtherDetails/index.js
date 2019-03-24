@@ -1,9 +1,12 @@
 import React from 'react';
-import { Container, Row, Col } from 'reactstrap';
-import classes from './OtherDetails.module.css';
+import { withStyles } from '@material-ui/core/styles';
+import Grid from '@material-ui/core/Grid';
+import Container from '../../../hoc/Container';
+
+const styles = theme => ({});
 
 const OtherDetails = props => {
-  const { details } = props;
+  const { classes, details } = props;
 
   const data = (icon, value, tag) => {
     return { icon, value, tag };
@@ -19,10 +22,15 @@ const OtherDetails = props => {
   ];
 
   return (
-    <Container>
-      <Row className={classes.Container}>
+    <Container style={{ background: 'transparent', padding: '5px' }}>
+      <Grid
+        container
+        direction="row"
+        justify="space-evenly"
+        alignItems="center"
+      >
         {listItems.map(item => (
-          <Col key={Math.random()}>
+          <Grid item key={Math.random()}>
             <div>
               <i className={item.icon + ' ' + classes.Icon} />
               <div className={classes.Value}>
@@ -30,11 +38,11 @@ const OtherDetails = props => {
                 <span className={classes.Tag}>{item.tag}</span>
               </div>
             </div>
-          </Col>
+          </Grid>
         ))}
-      </Row>
+      </Grid>
     </Container>
   );
 };
 
-export default OtherDetails;
+export default withStyles(styles)(OtherDetails);

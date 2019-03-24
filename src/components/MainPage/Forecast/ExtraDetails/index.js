@@ -1,58 +1,46 @@
 import React, { Component } from 'react';
-import { Collapse, Button, Container, Row, Col } from 'reactstrap';
-import classes from './ExtraDetails.module.css';
+import { withStyles } from '@material-ui/core/styles';
+import Card from '@material-ui/core/Card';
+import DetailsModal from './DetailsModal';
 
-class ExtraDetails extends Component {
-  state = { collapse: false };
+const styles = theme => ({
+  card: {
+    margin: '2px',
+    background: 'transparent',
+    cursor: 'pointer',
+  },
+});
 
-  toggle = () => {
-    this.setState(state => ({ collapse: !state.collapse }));
+class Details extends Component {
+  state = {
+    open: false,
+  };
+
+  handleClickOpen = () => {
+    this.setState({ open: true });
+  };
+
+  handleClose = () => {
+    this.setState({ open: false });
   };
 
   render() {
-    const { details } = this.props;
-
-    const data = (icon, value, tag) => {
-      return { icon, value, tag };
-    };
-
-    const listItems = [
-      data('wi wi-cloudy', details.clouds, '%'),
-      data('wi wi-barometer', details.pressure, 'hPa'),
-      data('wi wi-humidity', details.humidity, '%'),
-      data('wi wi-small-craft-advisory', details.windSpeed, 'kph'),
-      data('wi wi-wind-direction', details.windDirection, 'º'),
-    ];
-
+    const { open } = this.state;
+    const { classes, children, extraDetails, date } = this.props;
     return (
       <div>
-        <Button
-          color="primary"
-          onClick={this.toggle}
-          style={{ marginBottom: '1rem' }}
-        >
-          <i className="fas fa-info-circle" />
-        </Button>
-        <Collapse isOpen={this.state.collapse}>
-          <Container>
-            <Row className={classes.Container}>
-              {listItems.map(item => (
-                <Col key={Math.random()}>
-                  <div>
-                    <i className={item.icon + ' ' + classes.Icon} />
-                    <div className={classes.Value}>
-                      {item.value}
-                      <span className={classes.Tag}>{item.tag}</span>
-                    </div>
-                  </div>
-                </Col>
-              ))}
-            </Row>
-          </Container>
-        </Collapse>
+        <Card className={classes.card} onClick={this.handleClickOpen}>
+          {children}
+        </Card>
+        <DetailsModal
+          extraDetails={extraDetails}
+          date={date}
+          open={open}
+          close={this.handleClose}
+        />
       </div>
     );
   }
 }
 
-export default ExtraDetails;
+export default withStyles(styles)(Details);

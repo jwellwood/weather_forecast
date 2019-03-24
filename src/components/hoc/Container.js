@@ -1,0 +1,18 @@
+import React from 'react';
+import { withStyles } from '@material-ui/core/styles';
+import Paper from '@material-ui/core/Paper';
+
+const styles = () => ({
+  root: {
+    background: 'rgba(0,0,0,0.5)',
+    margin: '5px auto',
+    padding: '0px 5px',
+  },
+});
+
+const Container = props => {
+  const { classes, children } = props;
+  return <Paper className={classes.root}>{children}</Paper>;
+};
+
+export default withStyles(styles)(Container);

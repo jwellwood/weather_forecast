@@ -21,11 +21,7 @@ const CityInfo = props => {
     latitude,
   };
 
-  return (
-    <div style={{ padding: '10px' }}>
-      <CityDetails details={cityDetails} />
-    </div>
-  );
+  return <CityDetails details={cityDetails} />;
 };
 
 export default CityInfo;

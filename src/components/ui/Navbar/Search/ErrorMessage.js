@@ -1,0 +1,50 @@
+import React from 'react';
+import PropTypes from 'prop-types';
+import { withStyles } from '@material-ui/core/styles';
+import Snackbar from '@material-ui/core/Snackbar';
+import IconButton from '@material-ui/core/IconButton';
+import CloseIcon from '@material-ui/icons/Close';
+
+const styles = theme => ({
+  close: {
+    padding: theme.spacing.unit / 2,
+  },
+});
+
+const ErrorMessage = props => {
+  const { classes, error, onReset } = props;
+
+  return (
+    <div style={{ zIndex: 500 }}>
+      <Snackbar
+        anchorOrigin={{
+          vertical: 'bottom',
+          horizontal: 'left',
+        }}
+        open={error}
+        autoHideDuration={6000}
+        ContentProps={{
+          'aria-describedby': 'message-id',
+        }}
+        message={<span id="message-id">No city found</span>}
+        action={[
+          <IconButton
+            key="close"
+            aria-label="Close"
+            color="inherit"
+            className={classes.close}
+            onClick={onReset}
+          >
+            <CloseIcon />
+          </IconButton>,
+        ]}
+      />
+    </div>
+  );
+};
+
+ErrorMessage.propTypes = {
+  classes: PropTypes.object.isRequired,
+};
+
+export default withStyles(styles)(ErrorMessage);

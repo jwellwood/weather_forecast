@@ -1,0 +1,45 @@
+.Button {
+  width: 20px;
+  height: 20px;
+  line-height: 20px;
+  text-align: center;
+  margin: 5px;
+  padding: 0px;
+}
+
+.Container {
+  display: flex;
+  justify-content: space-between;
+}
+
+.ListItem {
+  background: #222;
+}
+
+.Modal {
+  background: #222;
+}
+
+.Icon {
+  margin: 0px 10px 0px 0px;
+  width: 20px;
+  font-size: 20px;
+}
+
+.MainDesc {
+  margin: 10px auto;
+  text-align: center;
+  font-size: 25px;
+}
+
+.Desc {
+  text-transform: uppercase;
+  font-size: 12px;
+  margin-left: 12px;
+}
+
+.Value {}
+
+.Tag {
+  font-size: 12px;
+}

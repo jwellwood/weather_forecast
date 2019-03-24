@@ -1,23 +1,24 @@
 import React from 'react';
-import { Container, Row, Col } from 'reactstrap';
+import classes from './Main.module.css';
 
-const index = props => {
+const Main = props => {
   const { details } = props;
+
   return (
-    <div>
-      <Container>
-        <Row>
-          <Col>
-            <i className={details.weatherIcon} />
-          </Col>
-          <Col>{details.description}</Col>
-          <Col>
-            {details.temp}ºC, {details.fahrenheit}ºF
-          </Col>
-        </Row>
-      </Container>
+    <div className={classes.Main}>
+      <div className={classes.Icon}>
+        <i className={details.weatherIcon} />
+      </div>
+      <div className={classes.TempC}>
+        {details.temp}
+        <span className={classes.Symbol}>ºC</span>
+      </div>
+      <div className={classes.TempF}>
+        {details.fahrenheit}
+        <span className={classes.Symbol}>ºF</span>
+      </div>
     </div>
   );
 };
 
-export default index;
+export default Main;

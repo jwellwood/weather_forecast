@@ -1,31 +1,35 @@
 import React from 'react';
-import SearchBar from './Search/SearchBar';
 import CityInfo from './CityInfo/';
 import CurrentWeather from './Current';
-import Forecast from './Forecast';
+import Forecast from './Forecast/index';
 import MainNavbar from '../ui/Navbar/Navbar';
 import Landing from './Landing/Landing';
 import PageContainer from '../hoc/PageContainer';
+import Footer from '../ui/Footer/Footer';
 
 const MainPage = props => {
-  const { currentData, forecastData, getForecast } = props;
+  const { currentData, forecastData, getForecast, error } = props;
   return (
     <div>
-      <MainNavbar />
-      <PageContainer>
-        <SearchBar {...props} />
-      </PageContainer>
+      <MainNavbar {...props} />
       <PageContainer>
         {currentData.name ? (
           <div>
             <CityInfo data={currentData} />
             <CurrentWeather data={currentData} />
-            <Forecast data={forecastData} getForecast={getForecast} />
+            {forecastData.length !== 0 ? (
+              <Forecast
+                data={forecastData}
+                getForecast={getForecast}
+                error={error}
+              />
+            ) : null}
           </div>
         ) : (
           <Landing />
         )}
       </PageContainer>
+      <Footer city={currentData.name} getForecast={getForecast} />
     </div>
   );
 };

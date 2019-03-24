@@ -1,0 +1,64 @@
+body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Didact Gothic', sans-serif;
+  width: 100wh;
+  height: 90vh;
+  color: #fff;
+  background: linear-gradient(-255deg, #E73C7E, #00b0ff, #111, #222);
+  background-size: 400% 400%;
+  -webkit-animation: Gradient 70s ease infinite;
+  -moz-animation: Gradient 70s ease infinite;
+  animation: Gradient 70s ease infinite;
+}
+
+button:focus {
+  outline: transparent;
+  cursor: pointer;
+}
+
+input:focus {
+  background: transparent;
+}
+
+@-webkit-keyframes Gradient {
+  0% {
+    background-position: 0% 50%
+  }
+
+  50% {
+    background-position: 100% 50%
+  }
+
+  100% {
+    background-position: 0% 50%
+  }
+}
+
+@-moz-keyframes Gradient {
+  0% {
+    background-position: 0% 50%
+  }
+
+  50% {
+    background-position: 100% 50%
+  }
+
+  100% {
+    background-position: 0% 50%
+  }
+}
+
+@keyframes Gradient {
+  0% {
+    background-position: 0% 50%
+  }
+
+  50% {
+    background-position: 100% 50%
+  }
+
+  100% {
+    background-position: 0% 50%
+  }
+}
