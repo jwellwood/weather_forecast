@@ -4,7 +4,7 @@ import DateAndTime from './DateAndTime';
 import OtherDetails from './OtherDetails';
 
 const Current = props => {
-  const { data } = props;
+  const { data, showDetails } = props;
   const clouds = data.clouds.all;
   const unixTime = new Date(data.dt * 1000);
   const date = unixTime.toDateString();
@@ -23,8 +23,9 @@ const Current = props => {
   const humidity = data.main.humidity;
   const pressure = data.main.pressure;
   const windSpeed = (data.wind.speed * 3.6).toFixed(1);
-  const windDirection = data.wind.deg;
+  const windDirection = data.wind.deg.toFixed(0);
   const description = data.weather[0].description;
+  const mainDesc = data.weather[0].main;
   const iconCode = data.weather[0].icon;
   const iconId = data.weather[0].id;
   const weatherIcon = iconCode.includes('n')
@@ -42,6 +43,7 @@ const Current = props => {
     roundedFahrenheit,
     weatherIcon,
     description,
+    mainDesc,
     visibility,
     clouds,
     humidity,
@@ -59,7 +61,7 @@ const Current = props => {
         sunset={details.sunset}
       />
       <IconAndTemp details={details} />
-      <OtherDetails details={details} />
+      {showDetails ? <OtherDetails details={details} /> : null}
     </div>
   );
 };

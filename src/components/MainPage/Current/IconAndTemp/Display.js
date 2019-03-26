@@ -7,8 +7,11 @@ import Temp from './Temp';
 import background from '../../../../assets/styles/Background.module.css';
 
 const styles = theme => ({
-  root: {
-    // backgroundImage: background,
+  desc: {
+    fontSize: '1.5rem',
+  },
+  background: {
+    background: 'transparent',
   },
 });
 
@@ -21,32 +24,35 @@ const Display = props => {
     roundedFah,
     icon,
     desc,
+    mainDesc,
   } = props;
+
   let backgroundImage = background.Day;
   if (icon.includes('night')) {
     backgroundImage = background.Night;
   }
   return (
-    <Paper>
+    <Paper className={classes.background}>
       <div className={backgroundImage}>
         <Grid
           container
           direction="row"
           justify="space-evenly"
           alignItems="center"
+          alignContent="center"
         >
           <Grid item xs={3}>
             <Temp mainTemp={roundedCel} exactTemp={celcius} symbol="C" />
           </Grid>
           <Grid item xs={6}>
-            <Icon icon={icon} desc={desc} />
+            <Icon icon={icon} desc={desc} mainDesc={mainDesc} />
           </Grid>
           <Grid item xs={3}>
             <Temp mainTemp={roundedFah} exactTemp={fahrenheit} symbol="F" />
           </Grid>
         </Grid>
         <Grid>
-          <div className={classes.Desc}>{desc}</div>
+          <div className={classes.desc}>{desc}</div>
         </Grid>
       </div>
     </Paper>

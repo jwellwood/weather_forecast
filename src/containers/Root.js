@@ -8,6 +8,8 @@ const initialState = {
   country: '',
   currentData: {},
   forecastData: [],
+  showDetails: false,
+  showForecast: false,
   error: false,
 };
 class App extends Component {
@@ -44,10 +46,19 @@ class App extends Component {
           const forecastData = res.data.list.slice(1, 9);
           this.setState({
             forecastData: forecastData,
+            showForecast: true,
           });
         })
         .catch(() => this.setState({ error: true }));
     }
+  };
+
+  toggleDetails = () => {
+    this.setState({ showDetails: !this.state.showDetails });
+  };
+
+  toggleForecast = () => {
+    this.setState({ showForecast: !this.state.showForecast });
   };
 
   onReset = () => {
@@ -57,7 +68,14 @@ class App extends Component {
   };
 
   render() {
-    const { city, currentData, forecastData, error } = this.state;
+    const {
+      city,
+      currentData,
+      forecastData,
+      showDetails,
+      showForecast,
+      error,
+    } = this.state;
     return (
       <div>
         <MainPage
@@ -67,6 +85,10 @@ class App extends Component {
           getCurrentWeather={this.getCurrentWeather}
           getForecast={this.getForecast}
           onReset={this.onReset}
+          toggleDetails={this.toggleDetails}
+          toggleForecast={this.toggleForecast}
+          showDetails={showDetails}
+          showForecast={showForecast}
           error={error}
         />
       </div>

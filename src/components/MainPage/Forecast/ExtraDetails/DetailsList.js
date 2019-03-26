@@ -1,76 +1,92 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 import { withStyles } from '@material-ui/core/styles';
-import List from '@material-ui/core/List';
-import ListItem from '@material-ui/core/ListItem';
-import ListItemAvatar from '@material-ui/core/ListItemAvatar';
-import ListItemSecondaryAction from '@material-ui/core/ListItemSecondaryAction';
-import ListItemText from '@material-ui/core/ListItemText';
-import Avatar from '@material-ui/core/Avatar';
+import Grid from '@material-ui/core/Grid';
+import Paper from '@material-ui/core/Paper';
+import Container from '../../../hoc/Container';
 
 const styles = theme => ({
-  root: {
-    flexGrow: 1,
-    maxWidth: 752,
-    background: theme.palette.primary.light,
+  text: {
+    textTransform: 'uppercase',
+    fontSize: '12px',
   },
-  demo: {
-    backgroundColor: theme.palette.background.paper,
+  value: {
+    fontSize: '15px',
+    color: theme.palette.secondary.light,
+    textAlign: 'right',
+    display: 'flex',
+    alignItems: 'center',
   },
-  title: {
-    margin: `${theme.spacing.unit * 4}px 0 ${theme.spacing.unit * 2}px`,
+  tag: {
+    fontSize: '12px',
+    color: theme.palette.secondary.dark,
+    margin: '0 auto',
+    // width: '20px',
+  },
+  desc: {
+    fontSize: '20px',
+    fontWeight: 'bold',
+    margin: '10px auto',
+    textAlign: 'center',
+    width: '100%',
+    background: theme.palette.primary.dark,
+    color: theme.palette.secondary.main,
   },
 });
 
 const DetailsList = props => {
   const { classes, details } = props;
-  const createItem = (icon, text, value, tag) => {
-    return { icon, text, value, tag };
+  const {
+    clouds,
+    pressure,
+    humidity,
+    windSpeed,
+    windDirection,
+    description,
+  } = details;
+
+  const data = (text, value, tag) => {
+    return { text, value, tag };
   };
 
   const listItems = [
-    createItem(
-      <i className={details.weatherIcon} />,
-      details.description,
-      '',
-      '',
-    ),
-    createItem(<i className="" />, 'Clouds', details.clouds, '%'),
-    createItem(<i className="" />, 'Humidity', details.humidity, '%'),
-    createItem(<i className="" />, 'Pressure', details.pressure, 'hPa'),
-    createItem(<i className="" />, 'Wind Speed', details.windSpeed, 'kph'),
-    createItem(
-      <i className="" />,
-      'Wind Direction',
-      details.windDirection,
-      'º',
-    ),
+    data('Clouds', clouds, '%'),
+    data('Pressure', pressure, 'hPa'),
+    data('Humidity', humidity, '%'),
+    data(' Wind Speed', windSpeed, 'kph'),
+    data('Wind Direction', windDirection, 'º'),
   ];
 
   return (
-    <div className={classes.root}>
-      <div className={classes.demo}>
-        <List dense className={classes.root}>
-          {listItems.map(item => (
-            <ListItem key={Math.random()}>
-              <ListItemAvatar>
-                <Avatar>{item.icon}</Avatar>
-              </ListItemAvatar>
-              <ListItemText primary={item.text} />
-              <ListItemSecondaryAction>
-                {item.value}
-                {item.tag}
-              </ListItemSecondaryAction>
-            </ListItem>
-          ))}
-        </List>
-      </div>
-    </div>
+    <Container>
+      <Paper className={classes.desc}>{description}</Paper>
+      <Grid
+        container
+        direction="row"
+        justify="space-evenly"
+        alignItems="center"
+      >
+        {listItems.map(item => (
+          <Grid
+            container
+            direction="row"
+            justify="space-between"
+            alignItems="center"
+            key={Math.random()}
+          >
+            <div className={classes.text}>{item.text}</div>
+            <div className={classes.value}>
+              {item.value !== undefined &&
+              item.value !== 'NaN' &&
+              item.value !== null
+                ? item.value
+                : '--'}
+              <div className={classes.tag}>{item.tag}</div>
+            </div>
+          </Grid>
+        ))}
+      </Grid>
+    </Container>
   );
-};
-
-DetailsList.propTypes = {
-  classes: PropTypes.object.isRequired,
 };
 
 export default withStyles(styles)(DetailsList);

@@ -6,9 +6,19 @@ import MainNavbar from '../ui/Navbar/Navbar';
 import Landing from './Landing/Landing';
 import PageContainer from '../hoc/PageContainer';
 import Footer from '../ui/Footer/Footer';
+import Buttons from '../ui/Buttons';
 
 const MainPage = props => {
-  const { currentData, forecastData, getForecast, error } = props;
+  const {
+    currentData,
+    forecastData,
+    getForecast,
+    showDetails,
+    toggleDetails,
+    showForecast,
+    toggleForecast,
+    error,
+  } = props;
   return (
     <div>
       <MainNavbar {...props} />
@@ -16,11 +26,13 @@ const MainPage = props => {
         {currentData.name ? (
           <div>
             <CityInfo data={currentData} />
-            <CurrentWeather data={currentData} />
-            {forecastData.length !== 0 ? (
+            <CurrentWeather data={currentData} showDetails={showDetails} />
+
+            {forecastData.length !== 0 && showForecast ? (
               <Forecast
                 data={forecastData}
                 getForecast={getForecast}
+                showForecast={showForecast}
                 error={error}
               />
             ) : null}
@@ -29,7 +41,7 @@ const MainPage = props => {
           <Landing />
         )}
       </PageContainer>
-      <Footer city={currentData.name} getForecast={getForecast} />
+      <Footer city={currentData.name} getForecast={getForecast} {...props} />
     </div>
   );
 };

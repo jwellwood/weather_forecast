@@ -1,8 +1,9 @@
 import React from 'react';
 import { withStyles } from '@material-ui/core/styles';
 import Container from '../../../hoc/Container';
+import Paper from '@material-ui/core/Paper';
 
-const styles = () => ({
+const styles = theme => ({
   root: {
     background: 'rgba(10, 10, 10, 0.5)',
     padding: '0px 5px',
@@ -11,9 +12,12 @@ const styles = () => ({
   detailsBar: {
     display: 'flex',
     justifyContent: 'space-between',
+    color: theme.palette.secondary.light,
   },
   time: {
     color: '#2ECC71',
+    background: 'rgba(20,20,20, 0.5)',
+    padding: '3px',
   },
   icons: {
     fontSize: '15px',
@@ -22,7 +26,10 @@ const styles = () => ({
     borderRadius: '50%',
     lineHeight: '25px',
     textShadow: '1px 1px #222',
-    margin: '5px auto',
+    margin: '0px auto',
+  },
+  sun: {
+    fontSize: '12px',
   },
   sunrise: {
     color: '#f5af19',
@@ -38,10 +45,10 @@ const DateAndTime = props => {
     <Container>
       <div className={classes.detailsBar}>
         <div>{date}</div>
-        <div className={classes.time}>{time}</div>
+        <Paper className={classes.time}>{time}</Paper>
       </div>
       {sunrise || sunset ? (
-        <div>
+        <div className={classes.sun}>
           <span>{sunrise} </span>
           <i
             className={`wi wi-sunrise ${classes.icons} ${classes.sunrise}`}

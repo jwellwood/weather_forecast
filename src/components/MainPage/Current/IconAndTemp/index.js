@@ -9,6 +9,7 @@ const IconAndTemp = props => {
       <Display
         icon={details.weatherIcon}
         desc={details.description}
+        mainDesc={details.mainDesc}
         celcius={details.temp}
         roundedCel={details.roundedTemp}
         fahrenheit={details.fahrenheit}

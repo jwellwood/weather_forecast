@@ -11,9 +11,7 @@ import ErrorMessage from './ErrorMessage';
 const styles = theme => ({
   root: {
     width: '100%',
-  },
-  grow: {
-    flexGrow: 1,
+    display: 'flex',
   },
   search: {
     marginLeft: theme.spacing.unit,

@@ -18,13 +18,13 @@ const styles = theme => ({
 });
 
 const MainNavbar = props => {
-  const { classes } = props;
+  const { classes, ...other } = props;
   return (
     <div className={classes.root}>
       <AppBar position="static">
         <Toolbar className={classes.bar}>
           <Logo />
-          <SearchBar {...props} />
+          <SearchBar {...other} />
         </Toolbar>
       </AppBar>
     </div>

@@ -23,7 +23,6 @@ const styles = theme => ({
 
 const Forecast = props => {
   const { classes, data } = props;
-
   return (
     <Paper className={classes.root}>
       <Grid
@@ -47,6 +46,7 @@ const Forecast = props => {
           const windSpeed = (item.wind.speed * 3.6).toFixed(1);
           const windDirection = item.wind.deg.toFixed(0);
           const description = item.weather[0].description;
+          const mainDesc = item.weather[0].main;
 
           const iconCode = item.weather[0].icon;
           const iconId = item.weather[0].id;
@@ -68,6 +68,7 @@ const Forecast = props => {
             description,
             temp,
             fahrenheit,
+            mainDesc,
           };
 
           const extraDetails = {

@@ -1,17 +1,29 @@
 import React from 'react';
-import classes from './Date.module.css';
+import { withStyles } from '@material-ui/core';
+
+const styles = theme => ({
+  date: {
+    color: theme.palette.secondary.main,
+    textTransform: 'uppercase',
+    fontSize: '10px',
+  },
+  time: {
+    color: '#2ECC71',
+    fontSize: '14px',
+  },
+});
 
 const Date = props => {
-  const { date } = props;
+  const { classes, date } = props;
   return (
     <div>
-      <div className={classes.Date}>
+      <div className={classes.date}>
         {date.date} {date.month}
       </div>
 
-      <div className={classes.Time}> {date.time}</div>
+      <div className={classes.time}> {date.time}</div>
     </div>
   );
 };
 
-export default Date;
+export default withStyles(styles)(Date);
