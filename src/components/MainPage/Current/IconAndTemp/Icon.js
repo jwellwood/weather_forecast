@@ -1,5 +1,6 @@
 import React from 'react';
 import { withStyles } from '@material-ui/core/styles';
+import Grow from '@material-ui/core/Grow';
 import { iconColor } from '../../../../assets/styles/iconColor';
 
 const styles = theme => ({
@@ -18,14 +19,21 @@ const Icon = props => {
 
   return (
     <div>
-      <div className={classes.icon}>
-        <i
-          className={`wi wi-owm-${icon}`}
-          style={{
-            color: iconColor(mainDesc),
-          }}
-        />
-      </div>
+      <Grow
+        in={icon ? true : false}
+        timeout={{ enter: 2500, exit: 300 }}
+        mountOnEnter
+        unmountOnExit
+      >
+        <div className={classes.icon}>
+          <i
+            className={`wi wi-owm-${icon}`}
+            style={{
+              color: iconColor(mainDesc),
+            }}
+          />
+        </div>
+      </Grow>
     </div>
   );
 };

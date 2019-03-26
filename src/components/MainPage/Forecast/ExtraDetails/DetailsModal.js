@@ -11,7 +11,16 @@ import DetailsList from './DetailsList';
 import Container from '../../../hoc/Container';
 
 function Transition(props) {
-  return <Slide direction="up" {...props} />;
+  return (
+    <Slide
+      direction="up"
+      {...props}
+      timeout={{
+        enter: 1000,
+        exit: 600,
+      }}
+    />
+  );
 }
 
 const styles = theme => ({

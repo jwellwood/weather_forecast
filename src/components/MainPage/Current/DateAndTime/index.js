@@ -1,5 +1,6 @@
 import React from 'react';
 import { withStyles } from '@material-ui/core/styles';
+import SplitText from 'react-pose-text';
 import Container from '../../../hoc/Container';
 import Paper from '@material-ui/core/Paper';
 
@@ -39,14 +40,29 @@ const styles = theme => ({
   },
 });
 
+const charPoses = {
+  exit: { opacity: 0, y: 20 },
+  enter: {
+    opacity: 1,
+    y: 0,
+    delay: ({ charIndex }) => charIndex * 50,
+  },
+};
+
 const DateAndTime = props => {
   const { classes, date, time, sunrise, sunset } = props;
   return (
     <Container>
       <div className={classes.detailsBar}>
-        <div>{date}</div>
+        <div>
+          <SplitText initialPose="exit" pose="enter" charPoses={charPoses}>
+            {date}
+          </SplitText>
+        </div>
+
         <Paper className={classes.time}>{time}</Paper>
       </div>
+
       {sunrise || sunset ? (
         <div className={classes.sun}>
           <span>{sunrise} </span>

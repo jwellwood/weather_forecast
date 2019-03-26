@@ -1,5 +1,6 @@
 import React from 'react';
 import { withStyles } from '@material-ui/core/styles';
+import SplitText from 'react-pose-text';
 import Map from './Maps/Map';
 import Flags from './Maps/Flags';
 import Paper from '@material-ui/core/Paper';
@@ -17,6 +18,15 @@ const styles = theme => ({
   },
 });
 
+const charPoses = {
+  exit: { opacity: 0, y: 20 },
+  enter: {
+    opacity: 1,
+    y: 0,
+    delay: ({ charIndex }) => charIndex * 80,
+  },
+};
+
 const CityDetails = props => {
   const { classes, details } = props;
   return (
@@ -29,7 +39,11 @@ const CityDetails = props => {
       }}
     >
       <div className={classes.root} style={{ float: 'left' }}>
-        <div>{details.city}</div>
+        <div>
+          <SplitText initialPose="exit" pose="enter" charPoses={charPoses}>
+            {details.city}
+          </SplitText>
+        </div>
         <div style={{ alignContent: 'center', alignItems: 'center' }}>
           <div className={classes.countryCode}>{details.country}</div>{' '}
           <Flags code={details.country} />

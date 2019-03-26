@@ -2,6 +2,7 @@ import React from 'react';
 import IconAndTemp from './IconAndTemp';
 import DateAndTime from './DateAndTime';
 import OtherDetails from './OtherDetails';
+import { Collapse } from '@material-ui/core';
 
 const Current = props => {
   const { data, showDetails } = props;
@@ -61,7 +62,15 @@ const Current = props => {
         sunset={details.sunset}
       />
       <IconAndTemp details={details} />
-      {showDetails ? <OtherDetails details={details} /> : null}
+      <Collapse
+        in={showDetails}
+        timeout={{
+          enter: 1000,
+          exit: 600,
+        }}
+      >
+        <OtherDetails details={details} />
+      </Collapse>
     </div>
   );
 };

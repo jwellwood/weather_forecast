@@ -6,7 +6,7 @@ import MainNavbar from '../ui/Navbar/Navbar';
 import Landing from './Landing/Landing';
 import PageContainer from '../hoc/PageContainer';
 import Footer from '../ui/Footer/Footer';
-import Buttons from '../ui/Buttons';
+import Collapse from '@material-ui/core/Collapse';
 
 const MainPage = props => {
   const {
@@ -14,9 +14,7 @@ const MainPage = props => {
     forecastData,
     getForecast,
     showDetails,
-    toggleDetails,
     showForecast,
-    toggleForecast,
     error,
   } = props;
   return (
@@ -27,15 +25,22 @@ const MainPage = props => {
           <div>
             <CityInfo data={currentData} />
             <CurrentWeather data={currentData} showDetails={showDetails} />
-
-            {forecastData.length !== 0 && showForecast ? (
+            <Collapse
+              in={showForecast}
+              mountOnEnter
+              unmountOnExit
+              timeout={{
+                enter: 1000,
+                exit: 600,
+              }}
+            >
               <Forecast
                 data={forecastData}
                 getForecast={getForecast}
                 showForecast={showForecast}
                 error={error}
               />
-            ) : null}
+            </Collapse>
           </div>
         ) : (
           <Landing />
