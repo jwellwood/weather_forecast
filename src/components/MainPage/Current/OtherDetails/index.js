@@ -1,6 +1,9 @@
 import React from 'react';
+import PropTypes from 'prop-types';
+// Styles
 import { withStyles } from '@material-ui/core/styles';
 import Grid from '@material-ui/core/Grid';
+// Components
 import Container from '../../../hoc/Container';
 
 const styles = theme => ({
@@ -37,6 +40,7 @@ const OtherDetails = props => {
     pressure,
     humidity,
     windSpeed,
+    dir,
     windDirection,
   } = details;
 
@@ -50,7 +54,12 @@ const OtherDetails = props => {
     data('wi wi-barometer', 'Pressure', pressure, 'hPa'),
     data('wi wi-humidity', 'Humidity', humidity, '%'),
     data('wi wi-small-craft-advisory', ' Wind Speed', windSpeed, 'kph'),
-    data('wi wi-wind-direction', 'Wind Direction', windDirection, 'º'),
+    data(
+      'wi wi-wind-direction',
+      'Wind Direction',
+      windDirection,
+      `${dir !== null ? dir : '-'}º`,
+    ),
   ];
 
   return (
@@ -62,32 +71,39 @@ const OtherDetails = props => {
         alignItems="center"
       >
         <Grid item xs={12} sm={6}>
-          {listItems.map(item => (
-            <Grid
-              container
-              direction="row"
-              justify="space-between"
-              alignItems="center"
-              key={Math.random()}
-            >
-              <div>
-                <i className={item.icon + ' ' + classes.icon} />{' '}
-                <span className={classes.text}>{item.text}</span>
-              </div>
-              <div className={classes.value}>
-                {item.value !== undefined &&
-                item.value !== 'NaN' &&
-                item.value !== null
-                  ? item.value
-                  : '--'}
-                <div className={classes.tag}>{item.tag}</div>
-              </div>
-            </Grid>
-          ))}
+          {listItems.map(item => {
+            const { value, icon, text, tag } = item;
+            return (
+              <Grid
+                container
+                direction="row"
+                justify="space-between"
+                alignItems="center"
+                key={Math.random()}
+              >
+                <div>
+                  <i className={icon + ' ' + classes.icon} />{' '}
+                  <span className={classes.text}>{text}</span>
+                </div>
+                <div className={classes.value}>
+                  {value !== undefined && value !== 'NaN' && value !== null
+                    ? value
+                    : '--'}
+                  <div className={classes.tag}>{tag}</div>
+                </div>
+              </Grid>
+            );
+          })}
         </Grid>
       </Grid>
     </Container>
   );
+};
+
+// Proptypes
+OtherDetails.propTypes = {
+  classes: PropTypes.object.isRequired,
+  details: PropTypes.object.isRequired,
 };
 
 export default withStyles(styles)(OtherDetails);

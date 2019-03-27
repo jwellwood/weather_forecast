@@ -1,4 +1,6 @@
 import React from 'react';
+import PropTypes from 'prop-types';
+// Components
 import CityDetails from './CityDetails';
 
 const CityInfo = props => {
@@ -22,6 +24,10 @@ const CityInfo = props => {
   };
 
   return <CityDetails details={cityDetails} />;
+};
+
+CityInfo.propTypes = {
+  data: PropTypes.object.isRequired,
 };
 
 export default CityInfo;

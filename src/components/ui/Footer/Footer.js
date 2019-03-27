@@ -5,7 +5,7 @@ import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
 import Buttons from '../Buttons';
 
-const styles = theme => ({
+const styles = () => ({
   appBar: {
     top: 'auto',
     bottom: 0,
@@ -36,6 +36,7 @@ const Footer = props => {
   );
 };
 
+// Proptypes
 Footer.propTypes = {
   classes: PropTypes.object.isRequired,
 };

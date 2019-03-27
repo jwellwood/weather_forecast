@@ -1,11 +1,13 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+// Styles
 import { withStyles } from '@material-ui/core/styles';
 import { fade } from '@material-ui/core/styles/colorManipulator';
 import InputBase from '@material-ui/core/InputBase';
 import IconButton from '@material-ui/core/IconButton';
 import SearchIcon from '@material-ui/icons/Search';
 import ArrowBack from '@material-ui/icons/ArrowBack';
+// Components
 import ErrorMessage from './ErrorMessage';
 
 const styles = theme => ({
@@ -65,8 +67,12 @@ const SearchBar = props => {
   );
 };
 
+// Proptypes
 SearchBar.propTypes = {
   classes: PropTypes.object.isRequired,
+  getCurrentWeather: PropTypes.func.isRequired,
+  onReset: PropTypes.func.isRequired,
+  error: PropTypes.bool.isRequired,
 };
 
 export default withStyles(styles)(SearchBar);

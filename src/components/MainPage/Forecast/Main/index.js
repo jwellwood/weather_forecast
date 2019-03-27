@@ -1,7 +1,9 @@
 import React from 'react';
+import PropTypes from 'prop-types';
+// Styles
 import { withStyles } from '@material-ui/core/styles';
-import Grid from '@material-ui/core/Grid';
 import { iconColor } from '../../../../assets/styles/iconColor';
+import Grid from '@material-ui/core/Grid';
 
 const styles = theme => ({
   root: {
@@ -60,6 +62,12 @@ const Main = props => {
       </Grid>
     </div>
   );
+};
+
+// Proptypes
+Main.propTypes = {
+  classes: PropTypes.object.isRequired,
+  details: PropTypes.object.isRequired,
 };
 
 export default withStyles(styles)(Main);

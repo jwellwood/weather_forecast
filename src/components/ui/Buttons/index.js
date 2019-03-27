@@ -1,8 +1,9 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+// Styles
 import { withStyles } from '@material-ui/core/styles';
-import Button from '@material-ui/core/Button';
 import Grid from '@material-ui/core/Grid';
+import Button from '@material-ui/core/Button';
 import KeyboardArrowUpIcon from '@material-ui/icons/KeyboardArrowUp';
 import KeyboardArrowDownIcon from '@material-ui/icons/KeyboardArrowDown';
 
@@ -10,11 +11,6 @@ const styles = theme => ({
   root: {
     margin: '0 auto',
   },
-  // button: {
-  //   padding: theme.spacing.unit,
-  //   width: '100%',
-  //   margin: '0px 5px',
-  // },
   leftButton: {
     padding: theme.spacing.unit,
     width: '100%',
@@ -91,8 +87,16 @@ const ButtonSizes = props => {
   return null;
 };
 
+// Proptypes
 ButtonSizes.propTypes = {
   classes: PropTypes.object.isRequired,
+  forecastData: PropTypes.array.isRequired,
+  toggleForecast: PropTypes.func.isRequired,
+  toggleDetails: PropTypes.func.isRequired,
+  getForecast: PropTypes.func.isRequired,
+  showDetails: PropTypes.bool.isRequired,
+  showForecast: PropTypes.bool.isRequired,
+  city: PropTypes.string.isRequired,
 };
 
 export default withStyles(styles)(ButtonSizes);

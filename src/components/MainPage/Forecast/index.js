@@ -1,12 +1,17 @@
 import React from 'react';
+import PropTypes from 'prop-types';
+// Styles
 import { withStyles } from '@material-ui/core/styles';
+import background from '../../../assets/styles/Background.module.css';
 import Grid from '@material-ui/core/Grid';
 import Paper from '@material-ui/core/Paper';
+// Components
 import Main from './Main';
-import Date from './Date';
-import monthFormat from '../../../helpers/DateFormat';
-import background from '../../../assets/styles/Background.module.css';
+import ForecastDate from './Date';
+
 import Details from './ExtraDetails';
+// Helpers
+import monthFormat from '../../../helpers/DateFormat';
 
 const styles = theme => ({
   root: {
@@ -82,10 +87,10 @@ const Forecast = props => {
           };
 
           return (
-            <Grid item xs={3} key={item.dt}>
+            <Grid item xs={2} key={item.dt}>
               <Details extraDetails={extraDetails} date={dateDetails}>
                 <div className={backgroundImage}>
-                  <Date date={dateDetails} />
+                  <ForecastDate date={dateDetails} />
                   <Main details={mainDetails} />
                 </div>
               </Details>
@@ -97,6 +102,10 @@ const Forecast = props => {
   );
 };
 
-Forecast.propTypes = {};
+// Proptypes
+Forecast.propTypes = {
+  classes: PropTypes.object.isRequired,
+  data: PropTypes.array.isRequired,
+};
 
 export default withStyles(styles)(Forecast);

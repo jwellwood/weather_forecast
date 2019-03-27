@@ -1,8 +1,11 @@
 import React from 'react';
+import PropTypes from 'prop-types';
+// Packages
 import { Map, GoogleApiWrapper } from 'google-maps-react';
+// Styles
 import Paper from '@material-ui/core/Paper';
-import mapStyle from './mapStyle.json';
-import Spinner from '../../../ui/Spinner/Spinner';
+import mapStyle from '../../../../assets/styles/mapStyle.json';
+// Keys
 const apiKey = process.env.REACT_APP_MAP_API_KEY;
 
 const MapContainer = props => {
@@ -27,11 +30,16 @@ const MapContainer = props => {
             lng: longitude,
           }}
         />
-      ) : (
-        <Spinner />
-      )}
+      ) : null}
     </Paper>
   );
+};
+
+// Proptypes
+MapContainer.propTypes = {
+  google: PropTypes.object.isRequired,
+  latitude: PropTypes.number.isRequired,
+  longitude: PropTypes.number.isRequired,
 };
 
 export default GoogleApiWrapper({

@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+// Styles
 import { withStyles } from '@material-ui/core/styles';
 import Snackbar from '@material-ui/core/Snackbar';
 import IconButton from '@material-ui/core/IconButton';
@@ -43,8 +44,11 @@ const ErrorMessage = props => {
   );
 };
 
+// Proptypes
 ErrorMessage.propTypes = {
   classes: PropTypes.object.isRequired,
+  error: PropTypes.bool.isRequired,
+  onReset: PropTypes.func.isRequired,
 };
 
 export default withStyles(styles)(ErrorMessage);

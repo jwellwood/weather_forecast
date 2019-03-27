@@ -1,6 +1,9 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
+// Styles
 import { withStyles } from '@material-ui/core/styles';
 import Card from '@material-ui/core/Card';
+// Components
 import DetailsModal from './DetailsModal';
 
 const styles = theme => ({
@@ -42,5 +45,13 @@ class Details extends Component {
     );
   }
 }
+
+// Proptypes
+Details.propTypes = {
+  classes: PropTypes.object.isRequired,
+  children: PropTypes.node.isRequired,
+  extraDetails: PropTypes.object.isRequired,
+  date: PropTypes.object.isRequired,
+};
 
 export default withStyles(styles)(Details);

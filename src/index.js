@@ -1,11 +1,12 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import 'bootstrap/dist/css/bootstrap.min.css';
+// Styles
 import { MuiThemeProvider, createMuiTheme } from '@material-ui/core/styles';
 import './assets/styles/index.css';
 import './assets/fonts/css/weather-icons.min.css';
+// Components
 import Root from '../src/containers/Root';
-
+// MUI theme
 const theme = createMuiTheme({
   palette: {
     primary: {

@@ -1,12 +1,16 @@
 import React from 'react';
+import PropTypes from 'prop-types';
+// Styles
+// Animations
+import Collapse from '@material-ui/core/Collapse';
+// Components
+import PageContainer from '../hoc/PageContainer';
+import MainNavbar from '../ui/Navbar/Navbar';
+import Landing from './Landing/Landing';
 import CityInfo from './CityInfo/';
 import CurrentWeather from './Current';
 import Forecast from './Forecast/index';
-import MainNavbar from '../ui/Navbar/Navbar';
-import Landing from './Landing/Landing';
-import PageContainer from '../hoc/PageContainer';
 import Footer from '../ui/Footer/Footer';
-import Collapse from '@material-ui/core/Collapse';
 
 const MainPage = props => {
   const {
@@ -51,6 +55,14 @@ const MainPage = props => {
   );
 };
 
-MainPage.propTypes = {};
+// Proptypes
+MainPage.propTypes = {
+  currentData: PropTypes.object.isRequired,
+  forecastData: PropTypes.array.isRequired,
+  getForecast: PropTypes.func.isRequired,
+  showDetails: PropTypes.bool.isRequired,
+  showForecast: PropTypes.bool.isRequired,
+  error: PropTypes.bool.isRequired,
+};
 
 export default MainPage;

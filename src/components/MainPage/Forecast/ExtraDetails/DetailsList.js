@@ -1,7 +1,10 @@
 import React from 'react';
+import PropTypes from 'prop-types';
+// Styles
 import { withStyles } from '@material-ui/core/styles';
 import Grid from '@material-ui/core/Grid';
 import Paper from '@material-ui/core/Paper';
+// Components
 import Container from '../../../hoc/Container';
 
 const styles = theme => ({
@@ -87,6 +90,12 @@ const DetailsList = props => {
       </Grid>
     </Container>
   );
+};
+
+// Proptypes
+DetailsList.propTypes = {
+  classes: PropTypes.object.isRequired,
+  details: PropTypes.object.isRequired,
 };
 
 export default withStyles(styles)(DetailsList);

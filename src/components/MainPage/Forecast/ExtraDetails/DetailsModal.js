@@ -1,4 +1,6 @@
 import React from 'react';
+import PropTypes from 'prop-types';
+// Styles
 import { withStyles } from '@material-ui/core/styles';
 import Grid from '@material-ui/core/Grid';
 import Button from '@material-ui/core/Button';
@@ -6,9 +8,11 @@ import Dialog from '@material-ui/core/Dialog';
 import DialogActions from '@material-ui/core/DialogActions';
 import DialogContent from '@material-ui/core/DialogContent';
 import DialogTitle from '@material-ui/core/DialogTitle';
+// Animations
 import Slide from '@material-ui/core/Slide';
-import DetailsList from './DetailsList';
+// Components
 import Container from '../../../hoc/Container';
+import DetailsList from './DetailsList';
 
 function Transition(props) {
   return (
@@ -79,6 +83,15 @@ const DetailsModal = props => {
       </Dialog>
     </div>
   );
+};
+
+// Proptypes
+DetailsModal.propTypes = {
+  classes: PropTypes.object.isRequired,
+  extraDetails: PropTypes.object.isRequired,
+  date: PropTypes.object.isRequired,
+  open: PropTypes.bool.isRequired,
+  close: PropTypes.func.isRequired,
 };
 
 export default withStyles(styles)(DetailsModal);

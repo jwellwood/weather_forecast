@@ -1,8 +1,11 @@
 import React, { Component } from 'react';
+// Packages
 import axios from 'axios';
+// Components
 import MainPage from '../components/MainPage/index';
-
+// Keys
 const apiKey = process.env.REACT_APP_WEATHER_API_KEY;
+
 const initialState = {
   city: '',
   country: '',
@@ -43,7 +46,7 @@ class App extends Component {
           `https://api.openweathermap.org/data/2.5/forecast?q=${city}&units=metric&APPID=${apiKey}`,
         )
         .then(res => {
-          const forecastData = res.data.list.slice(1, 9);
+          const forecastData = res.data.list.slice(1, 13);
           this.setState({
             forecastData: forecastData,
             showForecast: true,

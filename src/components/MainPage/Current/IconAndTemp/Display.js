@@ -1,10 +1,13 @@
 import React from 'react';
+import PropTypes from 'prop-types';
+// Styles
 import { withStyles } from '@material-ui/core/styles';
 import Grid from '@material-ui/core/Grid';
-import Icon from './Icon';
 import Paper from '@material-ui/core/Paper';
-import Temp from './Temp';
 import background from '../../../../assets/styles/Background.module.css';
+// Components
+import Icon from './Icon';
+import Temp from './Temp';
 
 const styles = theme => ({
   desc: {
@@ -57,6 +60,18 @@ const Display = props => {
       </div>
     </Paper>
   );
+};
+
+//Proptypes
+Display.propTypes = {
+  classes: PropTypes.object.isRequired,
+  celcius: PropTypes.number.isRequired,
+  fahrenheit: PropTypes.string.isRequired,
+  roundedCel: PropTypes.string.isRequired,
+  roundedFah: PropTypes.string.isRequired,
+  icon: PropTypes.string.isRequired,
+  desc: PropTypes.string.isRequired,
+  mainDesc: PropTypes.string.isRequired,
 };
 
 export default withStyles(styles)(Display);

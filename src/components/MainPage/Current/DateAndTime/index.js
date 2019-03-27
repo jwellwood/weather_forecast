@@ -1,8 +1,12 @@
 import React from 'react';
+import PropTypes from 'prop-types';
+// Styles
 import { withStyles } from '@material-ui/core/styles';
-import SplitText from 'react-pose-text';
-import Container from '../../../hoc/Container';
 import Paper from '@material-ui/core/Paper';
+// Animation
+import SplitText from 'react-pose-text';
+// Components
+import Container from '../../../hoc/Container';
 
 const styles = theme => ({
   root: {
@@ -75,6 +79,14 @@ const DateAndTime = props => {
       ) : null}
     </Container>
   );
+};
+
+DateAndTime.propTypes = {
+  classes: PropTypes.object.isRequired,
+  date: PropTypes.string.isRequired,
+  time: PropTypes.string.isRequired,
+  sunrise: PropTypes.string.isRequired,
+  sunset: PropTypes.string.isRequired,
 };
 
 export default withStyles(styles)(DateAndTime);

@@ -1,4 +1,6 @@
 import React from 'react';
+import PropTypes from 'prop-types';
+// Styles
 import { withStyles } from '@material-ui/core';
 
 const styles = theme => ({
@@ -13,7 +15,7 @@ const styles = theme => ({
   },
 });
 
-const Date = props => {
+const ForecastDate = props => {
   const { classes, date } = props;
   return (
     <div>
@@ -26,4 +28,10 @@ const Date = props => {
   );
 };
 
-export default withStyles(styles)(Date);
+// Proptypes
+ForecastDate.propTypes = {
+  classes: PropTypes.object.isRequired,
+  date: PropTypes.object.isRequired,
+};
+
+export default withStyles(styles)(ForecastDate);

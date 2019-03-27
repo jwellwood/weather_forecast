@@ -1,6 +1,8 @@
 import React from 'react';
+import PropTypes from 'prop-types';
+// Styles
 import { withStyles } from '@material-ui/core/styles';
-import { Paper } from '@material-ui/core';
+import Paper from '@material-ui/core/Paper';
 
 const styles = theme => ({
   main: {
@@ -33,6 +35,17 @@ const Temp = props => {
       <Paper className={classes.exact}>{exactTemp}</Paper>
     </div>
   );
+};
+
+// Proptypes
+Temp.propTypes = {
+  classes: PropTypes.object.isRequired,
+  mainTemp: PropTypes.string.isRequired,
+  exactTemp: PropTypes.oneOfType([
+    PropTypes.string.isRequired,
+    PropTypes.number.isRequired,
+  ]),
+  symbol: PropTypes.string.isRequired,
 };
 
 export default withStyles(styles)(Temp);

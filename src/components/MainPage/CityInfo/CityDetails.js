@@ -1,11 +1,15 @@
 import React from 'react';
+import PropTypes from 'prop-types';
+// Styles
 import { withStyles } from '@material-ui/core/styles';
+import Paper from '@material-ui/core/Paper';
+//Animation
 import SplitText from 'react-pose-text';
+// Components
 import Map from './Maps/Map';
 import Flags from './Maps/Flags';
-import Paper from '@material-ui/core/Paper';
 
-const styles = theme => ({
+const styles = () => ({
   root: {
     width: '50%',
     fontSize: '30px',
@@ -55,6 +59,10 @@ const CityDetails = props => {
   );
 };
 
-CityDetails.propTypes = {};
+// Proptypes
+CityDetails.propTypes = {
+  classes: PropTypes.object.isRequired,
+  details: PropTypes.object.isRequired,
+};
 
 export default withStyles(styles)(CityDetails);

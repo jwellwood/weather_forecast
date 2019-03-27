@@ -1,5 +1,8 @@
 import React from 'react';
+import PropTypes from 'prop-types';
+// Components
 import Display from './Display';
+
 const IconAndTemp = props => {
   const { details } = props;
   return (
@@ -13,6 +16,11 @@ const IconAndTemp = props => {
       roundedFah={details.roundedFahrenheit}
     />
   );
+};
+
+// Proptypes
+IconAndTemp.propTypes = {
+  details: PropTypes.object.isRequired,
 };
 
 export default IconAndTemp;

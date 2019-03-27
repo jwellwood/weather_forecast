@@ -1,8 +1,10 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+// Styles
+import { withStyles } from '@material-ui/core/styles';
 import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
-import { withStyles } from '@material-ui/core/styles';
+// Components
 import Logo from './Logo/Logo';
 import SearchBar from './Search/SearchBar';
 
@@ -31,6 +33,7 @@ const MainNavbar = props => {
   );
 };
 
+// Proptypes
 MainNavbar.propTypes = {
   classes: PropTypes.object.isRequired,
 };
