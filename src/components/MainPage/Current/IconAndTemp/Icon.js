@@ -24,7 +24,7 @@ const Icon = props => {
     <div>
       <Grow
         in={icon ? true : false}
-        timeout={{ enter: 2500, exit: 300 }}
+        timeout={{ enter: 1500, exit: 300 }}
         mountOnEnter
         unmountOnExit
       >

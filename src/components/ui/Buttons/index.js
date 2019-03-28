@@ -36,9 +36,7 @@ const ButtonSizes = props => {
     classes,
     forecastData,
     toggleForecast,
-    toggleDetails,
     getForecast,
-    showDetails,
     showForecast,
     city,
   } = props;
@@ -51,21 +49,6 @@ const ButtonSizes = props => {
         alignContent="center"
         className={classes.root}
       >
-        <Grid item xs={6} sm={3}>
-          <Button
-            variant="contained"
-            color="secondary"
-            className={classes.leftButton}
-            onClick={toggleDetails}
-          >
-            {showDetails ? 'details' : 'details'}
-            {showDetails ? (
-              <KeyboardArrowDownIcon className={classes.rightIcon} />
-            ) : (
-              <KeyboardArrowUpIcon className={classes.rightIcon} />
-            )}
-          </Button>
-        </Grid>
         <Grid item xs={6} sm={3}>
           <Button
             variant="contained"

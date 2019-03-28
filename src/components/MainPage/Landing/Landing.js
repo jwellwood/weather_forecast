@@ -1,28 +1,54 @@
 import React, { Component } from 'react';
-import posed from 'react-pose';
+//Styles
+import { withStyles } from '@material-ui/core/styles';
 
-const Box = posed.div({
-  visible: {
-    opacity: 1,
+//Animation
+import SplitText from 'react-pose-text';
+
+const styles = theme => ({
+  root: {
+    position: 'absolute',
+    top: '50%',
+    left: 0,
+    right: 0,
+    transform: 'translateY(-50%)',
   },
-  hidden: { opacity: 0 },
+  title: {
+    fontSize: '30px',
+    margin: '5px auto',
+    fontFamily: 'Fredoka One, cursive',
+    textAlign: 'center',
+  },
+  icon: {
+    fontSize: '30px',
+    color: '#f5af19',
+  },
 });
 
-class Landing extends Component {
-  state = { isVisible: false };
+const charPoses = {
+  exit: { opacity: 0, y: 20 },
+  enter: {
+    opacity: 1,
+    y: 0,
+    delay: ({ charIndex }) => charIndex * 120,
+  },
+};
 
-  componentDidMount() {
-    setInterval(() => {
-      this.setState({ isVisible: true });
-    }, 1000);
-  }
-  render() {
-    return (
-      <Box pose={this.state.isVisible ? 'visible' : 'hidden'}>
-        <div>Landing</div>
-      </Box>
-    );
-  }
-}
+const Landing = props => {
+  const { classes } = props;
+  return (
+    <div className={classes.root}>
+      <div>the</div>
+      <div className={classes.title}>
+        <SplitText initialPose="exit" pose="enter" charPoses={charPoses}>
+          Weather
+        </SplitText>
+      </div>
+      <div className={classes.icon}>
+        <i className="wi wi-horizon-alt" />
+      </div>
+    </div>
+  );
+};
 
-export default Landing;
+export default withStyles(styles)(Landing);

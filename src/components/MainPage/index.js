@@ -18,6 +18,8 @@ const MainPage = props => {
     forecastData,
     getForecast,
     showDetails,
+    toggleDetails,
+    toggleForecast,
     showForecast,
     error,
   } = props;
@@ -32,6 +34,7 @@ const MainPage = props => {
               data={currentData}
               showDetails={showDetails}
               showForecast={showForecast}
+              {...props}
             />
             <Collapse
               in={showForecast}

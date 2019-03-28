@@ -3,9 +3,8 @@ import PropTypes from 'prop-types';
 import { withStyles } from '@material-ui/core/styles';
 import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
-import Buttons from '../Buttons';
 
-const styles = () => ({
+const styles = theme => ({
   appBar: {
     top: 'auto',
     bottom: 0,
@@ -29,9 +28,7 @@ const Footer = props => {
   const { classes, ...other } = props;
   return (
     <AppBar position="fixed" color="primary" className={classes.appBar}>
-      <Toolbar className={classes.toolbar}>
-        <Buttons {...other} />
-      </Toolbar>
+      <Toolbar className={classes.toolbar} />
     </AppBar>
   );
 };

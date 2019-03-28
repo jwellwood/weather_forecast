@@ -4,7 +4,15 @@ import PropTypes from 'prop-types';
 import Display from './Display';
 
 const IconAndTemp = props => {
-  const { details, showDetails } = props;
+  const {
+    details,
+    showDetails,
+    toggleDetails,
+    getForecast,
+    showForecast,
+    toggleForecast,
+    forecastData,
+  } = props;
   return (
     <Display
       icon={details.weatherIcon}
@@ -16,6 +24,11 @@ const IconAndTemp = props => {
       roundedFah={details.roundedFahrenheit}
       details={details}
       showDetails={showDetails}
+      toggleDetails={toggleDetails}
+      getForecast={getForecast}
+      showForecast={showForecast}
+      toggleForecast={toggleForecast}
+      forecastData={forecastData}
     />
   );
 };
@@ -24,6 +37,7 @@ const IconAndTemp = props => {
 IconAndTemp.propTypes = {
   details: PropTypes.object.isRequired,
   showDetails: PropTypes.bool.isRequired,
+  toggleDetails: PropTypes.func.isRequired,
 };
 
 export default IconAndTemp;

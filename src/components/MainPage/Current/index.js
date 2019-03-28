@@ -5,9 +5,18 @@ import IconAndTemp from './IconAndTemp';
 import DateAndTime from './DateAndTime';
 // Helpers
 import windDir from '../../../helpers/windDirection';
+import Grow from '@material-ui/core/Grow';
 
 const Current = props => {
-  const { data, showDetails } = props;
+  const {
+    data,
+    showDetails,
+    toggleDetails,
+    showForecast,
+    toggleForecast,
+    forecastData,
+    getForecast,
+  } = props;
   // DATES
   const unixTime = new Date(data.dt * 1000);
   const date = unixTime.toDateString();
@@ -76,7 +85,15 @@ const Current = props => {
         sunrise={details.sunrise}
         sunset={details.sunset}
       />
-      <IconAndTemp details={details} showDetails={showDetails} />
+      <IconAndTemp
+        details={details}
+        showDetails={showDetails}
+        toggleDetails={toggleDetails}
+        showForecast={showForecast}
+        getForecast={getForecast}
+        toggleForecast={toggleForecast}
+        forecastData={forecastData}
+      />
     </div>
   );
 };

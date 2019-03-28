@@ -10,7 +10,8 @@ import Root from '../src/containers/Root';
 const theme = createMuiTheme({
   palette: {
     primary: {
-      main: '#0d47a1',
+      // main: '#0d47a1',
+      main: '#17202A',
     },
     secondary: {
       main: '#00b0ff',

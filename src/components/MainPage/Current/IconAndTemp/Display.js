@@ -9,6 +9,8 @@ import background from '../../../../assets/styles/Background.module.css';
 import Icon from './Icon';
 import Temp from './Temp';
 import OtherDetails from '../OtherDetails';
+import DetailsToggler from '../../../ui/Buttons/DetailsToggler';
+import ForecastToggler from '../../../ui/Buttons/ForecastToggler';
 
 const styles = theme => ({
   desc: {
@@ -16,6 +18,9 @@ const styles = theme => ({
   },
   background: {
     background: 'transparent',
+  },
+  button: {
+    padding: theme.spacing.unit,
   },
 });
 
@@ -31,6 +36,11 @@ const Display = props => {
     mainDesc,
     details,
     showDetails,
+    toggleDetails,
+    showForecast,
+    toggleForecast,
+    getForecast,
+    forecastData,
   } = props;
 
   let backgroundImage = background.Day;
@@ -66,6 +76,20 @@ const Display = props => {
             </Grid>
           </div>
         )}
+        <Grid
+          container
+          direction="row"
+          justify="space-between"
+          alignContent="center"
+        >
+          <div className={classes.button}>
+            <ForecastToggler {...props} />
+          </div>
+
+          <div className={classes.button}>
+            <DetailsToggler {...props} />
+          </div>
+        </Grid>
       </div>
     </Paper>
   );

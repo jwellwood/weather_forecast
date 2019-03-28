@@ -18,7 +18,7 @@ const styles = theme => ({
     background: 'rgba(10, 10, 10, 0.5)',
     margin: '10px auto',
     padding: '5px',
-    marginBottom: '15vh',
+    marginBottom: '10vh',
   },
   card: {
     margin: '2px',
