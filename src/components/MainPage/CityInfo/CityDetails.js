@@ -33,6 +33,7 @@ const charPoses = {
 
 const CityDetails = props => {
   const { classes, details } = props;
+  const { city, country, longitude, latitude } = details;
   return (
     <Paper
       style={{
@@ -45,16 +46,16 @@ const CityDetails = props => {
       <div className={classes.root} style={{ float: 'left' }}>
         <div>
           <SplitText initialPose="exit" pose="enter" charPoses={charPoses}>
-            {details.city}
+            {city}
           </SplitText>
         </div>
         <div style={{ alignContent: 'center', alignItems: 'center' }}>
-          <div className={classes.countryCode}>{details.country}</div>{' '}
-          <Flags code={details.country} />
+          <div className={classes.countryCode}>{country}</div>{' '}
+          <Flags code={country} />
         </div>
       </div>
 
-      <Map longitude={details.longitude} latitude={details.latitude} />
+      <Map longitude={longitude} latitude={latitude} />
     </Paper>
   );
 };

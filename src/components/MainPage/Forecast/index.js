@@ -27,7 +27,8 @@ const styles = theme => ({
 });
 
 const Forecast = props => {
-  const { classes, data } = props;
+  const { classes, forecastData } = props;
+  const data = forecastData;
   return (
     <Paper className={classes.root}>
       <Grid
@@ -105,7 +106,7 @@ const Forecast = props => {
 // Proptypes
 Forecast.propTypes = {
   classes: PropTypes.object.isRequired,
-  data: PropTypes.array.isRequired,
+  forecastData: PropTypes.array.isRequired,
 };
 
 export default withStyles(styles)(Forecast);

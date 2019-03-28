@@ -4,15 +4,7 @@ import PropTypes from 'prop-types';
 import Display from './Display';
 
 const IconAndTemp = props => {
-  const {
-    details,
-    showDetails,
-    toggleDetails,
-    getForecast,
-    showForecast,
-    toggleForecast,
-    forecastData,
-  } = props;
+  const { details } = props;
   return (
     <Display
       icon={details.weatherIcon}
@@ -23,12 +15,7 @@ const IconAndTemp = props => {
       fahrenheit={details.fahrenheit}
       roundedFah={details.roundedFahrenheit}
       details={details}
-      showDetails={showDetails}
-      toggleDetails={toggleDetails}
-      getForecast={getForecast}
-      showForecast={showForecast}
-      toggleForecast={toggleForecast}
-      forecastData={forecastData}
+      {...props}
     />
   );
 };

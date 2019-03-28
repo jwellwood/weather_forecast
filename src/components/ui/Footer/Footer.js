@@ -3,6 +3,8 @@ import PropTypes from 'prop-types';
 import { withStyles } from '@material-ui/core/styles';
 import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
+import { IconButton, Grid } from '@material-ui/core';
+import HelpOutlineIcon from '@material-ui/icons/HelpOutline';
 
 const styles = theme => ({
   appBar: {
@@ -11,24 +13,28 @@ const styles = theme => ({
     zIndex: 10,
   },
   toolbar: {
-    alignItems: 'center',
-    justifyContent: 'space-between',
-  },
-  fabButton: {
-    position: 'absolute',
-    zIndex: 11,
-    top: -20,
-    left: 0,
-    right: 0,
-    margin: '0 auto',
+    fontSize: '15px',
+    color: theme.palette.primary.light,
   },
 });
 
 const Footer = props => {
-  const { classes, ...other } = props;
+  const { classes } = props;
   return (
     <AppBar position="fixed" color="primary" className={classes.appBar}>
-      <Toolbar className={classes.toolbar} />
+      <Toolbar variant="dense" className={classes.toolbar}>
+        <Grid
+          container
+          direction="row"
+          justify="space-between"
+          alignItems="center"
+        >
+          <div>jwellwood 2019</div>
+          <IconButton color="secondary">
+            <HelpOutlineIcon />
+          </IconButton>
+        </Grid>
+      </Toolbar>
     </AppBar>
   );
 };

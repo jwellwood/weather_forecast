@@ -82,17 +82,19 @@ class App extends Component {
     return (
       <div>
         <MainPage
+          // state
           city={city}
           currentData={currentData}
           forecastData={forecastData}
+          showDetails={showDetails}
+          showForecast={showForecast}
+          error={error}
+          // functions
           getCurrentWeather={this.getCurrentWeather}
           getForecast={this.getForecast}
           onReset={this.onReset}
           toggleDetails={this.toggleDetails}
           toggleForecast={this.toggleForecast}
-          showDetails={showDetails}
-          showForecast={showForecast}
-          error={error}
         />
       </div>
     );

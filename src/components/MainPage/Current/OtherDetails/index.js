@@ -109,45 +109,6 @@ const OtherDetails = props => {
   );
 };
 
-{
-  /* <div className={classes.root}>
-      <Dialog
-        open={open}
-        fullWidth
-        maxWidth="xl"
-        TransitionComponent={Transition}
-        keepMounted
-        onClose={close}
-        aria-labelledby="alert-dialog-slide-title"
-        aria-describedby="alert-dialog-slide-description"
-        PaperProps={{
-          classes: {
-            root: classes.paper,
-          },
-        }}
-      >
-        <Container>
-          <DialogTitle id="alert-dialog-slide-title">
-            <Grid container direction="row" justify="space-between">
-              <div className={classes.title}>
-                {date.date} {date.month} {date.year}
-              </div>
-              <div className={classes.time}>{date.time}</div>
-            </Grid>
-          </DialogTitle>
-          <DialogContent>
-            <DetailsList details={extraDetails} />
-          </DialogContent>
-          <DialogActions>
-            <Button variant="outlined" onClick={close} color="secondary">
-              Back
-            </Button>
-          </DialogActions>
-        </Container>
-      </Dialog>
-    </div> */
-}
-
 // Proptypes
 OtherDetails.propTypes = {
   classes: PropTypes.object.isRequired,

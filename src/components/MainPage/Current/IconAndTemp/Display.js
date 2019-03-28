@@ -36,11 +36,6 @@ const Display = props => {
     mainDesc,
     details,
     showDetails,
-    toggleDetails,
-    showForecast,
-    toggleForecast,
-    getForecast,
-    forecastData,
   } = props;
 
   let backgroundImage = background.Day;
@@ -85,7 +80,6 @@ const Display = props => {
           <div className={classes.button}>
             <ForecastToggler {...props} />
           </div>
-
           <div className={classes.button}>
             <DetailsToggler {...props} />
           </div>

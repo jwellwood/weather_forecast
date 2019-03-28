@@ -13,29 +13,15 @@ import Forecast from './Forecast/index';
 import Footer from '../ui/Footer/Footer';
 
 const MainPage = props => {
-  const {
-    currentData,
-    forecastData,
-    getForecast,
-    showDetails,
-    toggleDetails,
-    toggleForecast,
-    showForecast,
-    error,
-  } = props;
+  const { currentData, showForecast } = props;
   return (
     <div>
       <MainNavbar {...props} />
       <PageContainer>
         {currentData.name ? (
           <div>
-            <CityInfo data={currentData} />
-            <CurrentWeather
-              data={currentData}
-              showDetails={showDetails}
-              showForecast={showForecast}
-              {...props}
-            />
+            <CityInfo {...props} />
+            <CurrentWeather {...props} />
             <Collapse
               in={showForecast}
               mountOnEnter
@@ -44,19 +30,14 @@ const MainPage = props => {
                 exit: 600,
               }}
             >
-              <Forecast
-                data={forecastData}
-                getForecast={getForecast}
-                showForecast={showForecast}
-                error={error}
-              />
+              <Forecast {...props} />
             </Collapse>
           </div>
         ) : (
           <Landing />
         )}
       </PageContainer>
-      <Footer city={currentData.name} getForecast={getForecast} {...props} />
+      <Footer />
     </div>
   );
 };
@@ -64,11 +45,7 @@ const MainPage = props => {
 // Proptypes
 MainPage.propTypes = {
   currentData: PropTypes.object.isRequired,
-  forecastData: PropTypes.array.isRequired,
-  getForecast: PropTypes.func.isRequired,
-  showDetails: PropTypes.bool.isRequired,
   showForecast: PropTypes.bool.isRequired,
-  error: PropTypes.bool.isRequired,
 };
 
 export default MainPage;

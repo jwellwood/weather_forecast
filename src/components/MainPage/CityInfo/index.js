@@ -4,15 +4,15 @@ import PropTypes from 'prop-types';
 import CityDetails from './CityDetails';
 
 const CityInfo = props => {
-  const { data } = props;
-  const city = data.name;
-  const country = data.sys.country;
-  const sunriseUnix = new Date(data.sys.sunrise * 1000);
-  const sunsetUnix = new Date(data.sys.sunset * 1000);
+  const { currentData } = props;
+  const city = currentData.name;
+  const country = currentData.sys.country;
+  const sunriseUnix = new Date(currentData.sys.sunrise * 1000);
+  const sunsetUnix = new Date(currentData.sys.sunset * 1000);
   const sunrise = sunriseUnix.toLocaleTimeString().slice(0, 5);
   const sunset = sunsetUnix.toLocaleTimeString().slice(0, 5);
-  const latitude = data.coord.lat;
-  const longitude = data.coord.lon;
+  const latitude = currentData.coord.lat;
+  const longitude = currentData.coord.lon;
 
   const cityDetails = {
     city,
@@ -27,7 +27,7 @@ const CityInfo = props => {
 };
 
 CityInfo.propTypes = {
-  data: PropTypes.object.isRequired,
+  currentData: PropTypes.object.isRequired,
 };
 
 export default CityInfo;
