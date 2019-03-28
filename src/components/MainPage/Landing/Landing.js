@@ -18,7 +18,9 @@ class Landing extends Component {
   }
   render() {
     return (
-      <Box pose={this.state.isVisible ? 'visible' : 'hidden'}>Landing</Box>
+      <Box pose={this.state.isVisible ? 'visible' : 'hidden'}>
+        <div>Landing</div>
+      </Box>
     );
   }
 }

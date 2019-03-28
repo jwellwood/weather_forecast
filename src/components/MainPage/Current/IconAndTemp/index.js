@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 import Display from './Display';
 
 const IconAndTemp = props => {
-  const { details } = props;
+  const { details, showDetails } = props;
   return (
     <Display
       icon={details.weatherIcon}
@@ -14,6 +14,8 @@ const IconAndTemp = props => {
       roundedCel={details.roundedTemp}
       fahrenheit={details.fahrenheit}
       roundedFah={details.roundedFahrenheit}
+      details={details}
+      showDetails={showDetails}
     />
   );
 };
@@ -21,6 +23,7 @@ const IconAndTemp = props => {
 // Proptypes
 IconAndTemp.propTypes = {
   details: PropTypes.object.isRequired,
+  showDetails: PropTypes.bool.isRequired,
 };
 
 export default IconAndTemp;

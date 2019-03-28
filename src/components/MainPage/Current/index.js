@@ -1,11 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-// Animation
-import Collapse from '@material-ui/core/Collapse';
 // Components
 import IconAndTemp from './IconAndTemp';
 import DateAndTime from './DateAndTime';
-import OtherDetails from './OtherDetails';
 // Helpers
 import windDir from '../../../helpers/windDirection';
 
@@ -79,16 +76,7 @@ const Current = props => {
         sunrise={details.sunrise}
         sunset={details.sunset}
       />
-      <IconAndTemp details={details} />
-      <Collapse
-        in={showDetails}
-        timeout={{
-          enter: 1000,
-          exit: 600,
-        }}
-      >
-        <OtherDetails details={details} />
-      </Collapse>
+      <IconAndTemp details={details} showDetails={showDetails} />
     </div>
   );
 };

@@ -28,13 +28,16 @@ const MainPage = props => {
         {currentData.name ? (
           <div>
             <CityInfo data={currentData} />
-            <CurrentWeather data={currentData} showDetails={showDetails} />
+            <CurrentWeather
+              data={currentData}
+              showDetails={showDetails}
+              showForecast={showForecast}
+            />
             <Collapse
               in={showForecast}
               mountOnEnter
-              unmountOnExit
               timeout={{
-                enter: 1000,
+                enter: 800,
                 exit: 600,
               }}
             >

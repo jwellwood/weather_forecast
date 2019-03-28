@@ -8,6 +8,7 @@ import background from '../../../../assets/styles/Background.module.css';
 // Components
 import Icon from './Icon';
 import Temp from './Temp';
+import OtherDetails from '../OtherDetails';
 
 const styles = theme => ({
   desc: {
@@ -28,6 +29,8 @@ const Display = props => {
     icon,
     desc,
     mainDesc,
+    details,
+    showDetails,
   } = props;
 
   let backgroundImage = background.Day;
@@ -37,26 +40,32 @@ const Display = props => {
   return (
     <Paper className={classes.background}>
       <div className={backgroundImage}>
-        <Grid
-          container
-          direction="row"
-          justify="space-evenly"
-          alignItems="center"
-          alignContent="center"
-        >
-          <Grid item xs={3}>
-            <Temp mainTemp={roundedCel} exactTemp={celcius} symbol="C" />
-          </Grid>
-          <Grid item xs={6}>
-            <Icon icon={icon} desc={desc} mainDesc={mainDesc} />
-          </Grid>
-          <Grid item xs={3}>
-            <Temp mainTemp={roundedFah} exactTemp={fahrenheit} symbol="F" />
-          </Grid>
-        </Grid>
-        <Grid>
-          <div className={classes.desc}>{desc}</div>
-        </Grid>
+        {showDetails ? (
+          <OtherDetails details={details} />
+        ) : (
+          <div>
+            <Grid
+              container
+              direction="row"
+              justify="space-evenly"
+              alignItems="center"
+              alignContent="center"
+            >
+              <Grid item xs={3}>
+                <Temp mainTemp={roundedCel} exactTemp={celcius} symbol="C" />
+              </Grid>
+              <Grid item xs={6}>
+                <Icon icon={icon} desc={desc} mainDesc={mainDesc} />
+              </Grid>
+              <Grid item xs={3}>
+                <Temp mainTemp={roundedFah} exactTemp={fahrenheit} symbol="F" />
+              </Grid>
+            </Grid>
+            <Grid>
+              <div className={classes.desc}>{desc}</div>
+            </Grid>
+          </div>
+        )}
       </div>
     </Paper>
   );
@@ -72,6 +81,7 @@ Display.propTypes = {
   icon: PropTypes.string.isRequired,
   desc: PropTypes.string.isRequired,
   mainDesc: PropTypes.string.isRequired,
+  showDetails: PropTypes.bool.isRequired,
 };
 
 export default withStyles(styles)(Display);
