@@ -8,9 +8,9 @@ import { modalUp } from '../../../helpers/Transitions';
 
 const styles = theme => ({
   paper: {
-    backgroundColor: 'rgba(0,0,0, 0.95)',
+    backgroundColor: 'rgba(0,0,0, 0.85)',
     boxShadow: 'none',
-    overflow: 'hidden',
+    // overflow: 'hidden',
     border: '2px solid',
     borderColor: theme.palette.secondary.dark,
   },
@@ -24,8 +24,8 @@ const ModalWrapper = props => {
       fullWidth
       TransitionComponent={modalUp}
       keepMounted
-      onClose={close}
       scroll="paper"
+      onClose={close}
       PaperProps={{
         classes: {
           root: classes.paper,

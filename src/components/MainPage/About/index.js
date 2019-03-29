@@ -2,8 +2,8 @@ import React, { Component } from 'react';
 //Styles
 import IconButton from '@material-ui/core/IconButton';
 import HelpOutlineIcon from '@material-ui/icons/HelpOutline';
-import AboutContent from './AboutContent';
 import ModalWrapper from '../../ui/Modal';
+import TitleAndActions from './TitleAndActions';
 
 class About extends Component {
   state = {
@@ -26,7 +26,7 @@ class About extends Component {
           <HelpOutlineIcon />
         </IconButton>
         <ModalWrapper open={open} close={this.handleClose}>
-          <AboutContent close={this.handleClose} />
+          <TitleAndActions close={this.handleClose} />
         </ModalWrapper>
       </div>
     );
