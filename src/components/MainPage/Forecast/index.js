@@ -2,6 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 // Styles
 import { withStyles } from '@material-ui/core/styles';
+import { styles } from './styles/index';
 import background from '../../../assets/styles/Background.module.css';
 import Grid from '@material-ui/core/Grid';
 import Paper from '@material-ui/core/Paper';
@@ -12,19 +13,6 @@ import ForecastDate from './Date';
 import Details from './ExtraDetails';
 // Helpers
 import monthFormat from '../../../helpers/DateFormat';
-
-const styles = theme => ({
-  root: {
-    background: 'rgba(10, 10, 10, 0.5)',
-    margin: '10px auto',
-    padding: '5px',
-    marginBottom: '10vh',
-  },
-  card: {
-    margin: '2px',
-    background: 'transparent',
-  },
-});
 
 const Forecast = props => {
   const { classes, forecastData } = props;

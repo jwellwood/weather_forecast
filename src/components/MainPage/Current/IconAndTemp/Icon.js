@@ -2,24 +2,13 @@ import React from 'react';
 import PropTypes from 'prop-types';
 // Styles
 import { withStyles } from '@material-ui/core/styles';
+import { styles } from './styles/index';
 import { iconColor } from '../../../../assets/styles/iconColor';
 // Animation
 import Grow from '@material-ui/core/Grow';
 
-const styles = () => ({
-  icon: {
-    margin: '10px auto',
-    fontSize: '35px',
-    width: '75px',
-    height: '75px',
-    borderRadius: '50%',
-    lineHeight: '75px',
-    background: 'rgba(10,10,10,0.3)',
-  },
-});
 const Icon = props => {
   const { classes, icon, mainDesc } = props;
-
   return (
     <div>
       <Grow

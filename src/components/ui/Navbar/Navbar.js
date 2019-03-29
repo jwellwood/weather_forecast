@@ -2,22 +2,12 @@ import React from 'react';
 import PropTypes from 'prop-types';
 // Styles
 import { withStyles } from '@material-ui/core/styles';
+import { styles } from '../styles/index';
 import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
 // Components
 import Logo from './Logo/Logo';
 import SearchBar from './Search/SearchBar';
-
-const styles = theme => ({
-  root: {
-    width: '100%',
-    display: 'flex',
-  },
-  bar: {
-    justifyContent: 'space-between',
-    padding: theme.spacing.unit,
-  },
-});
 
 const MainNavbar = props => {
   const { classes, ...other } = props;

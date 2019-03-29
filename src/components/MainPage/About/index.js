@@ -3,7 +3,7 @@ import React, { Component } from 'react';
 import IconButton from '@material-ui/core/IconButton';
 import HelpOutlineIcon from '@material-ui/icons/HelpOutline';
 import ModalWrapper from '../../ui/Modal';
-import TitleAndActions from './TitleAndActions';
+import TitleAndActions from './components/TitleAndActions';
 
 class About extends Component {
   state = {

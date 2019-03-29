@@ -2,19 +2,10 @@ import React from 'react';
 import PropTypes from 'prop-types';
 // Styles
 import { withStyles } from '@material-ui/core/styles';
+import { styles } from '../styles/index';
 import Dialog from '@material-ui/core/Dialog';
 // Animations
 import { modalUp } from '../../../helpers/Transitions';
-
-const styles = theme => ({
-  paper: {
-    backgroundColor: 'rgba(0,0,0, 0.85)',
-    boxShadow: 'none',
-    // overflow: 'hidden',
-    border: '2px solid',
-    borderColor: theme.palette.secondary.dark,
-  },
-});
 
 const ModalWrapper = props => {
   const { classes, children, open, close } = props;

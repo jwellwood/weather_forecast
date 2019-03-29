@@ -2,17 +2,10 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 // Styles
 import { withStyles } from '@material-ui/core/styles';
+import { styles } from './styles/index';
 import Card from '@material-ui/core/Card';
 // Components
 import DetailsModal from './DetailsModal';
-
-const styles = theme => ({
-  card: {
-    margin: '2px',
-    background: 'transparent',
-    cursor: 'pointer',
-  },
-});
 
 class Details extends Component {
   state = {

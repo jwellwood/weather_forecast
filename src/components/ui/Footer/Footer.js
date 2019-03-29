@@ -1,22 +1,11 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { withStyles } from '@material-ui/core/styles';
+import { styles } from '../styles/index';
 import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
 import Grid from '@material-ui/core/Grid';
 import About from '../../MainPage/About';
-
-const styles = theme => ({
-  appBar: {
-    top: 'auto',
-    bottom: 0,
-    zIndex: 10,
-  },
-  toolbar: {
-    fontSize: '15px',
-    color: theme.palette.primary.light,
-  },
-});
 
 const Footer = props => {
   const { classes } = props;

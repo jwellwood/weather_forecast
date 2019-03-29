@@ -13,17 +13,18 @@ export const iconColor = desc => {
       return '#DC7633';
     case 'Snow':
       return '#F7F9F9';
+    case 'Haze':
+      return '#AF7AC5';
     // Less common
     case 'Mist' ||
       'Smoke' ||
-      'Haze' ||
       'Dust' ||
       'Fog' ||
       'Sand' ||
       'Ash' ||
       'Squall' ||
       'Tornado':
-      return '#AF7AC5';
+      return '#a4f9c6';
     default:
       return '#fff';
   }

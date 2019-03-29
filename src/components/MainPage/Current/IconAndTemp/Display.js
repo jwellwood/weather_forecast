@@ -2,6 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 // Styles
 import { withStyles } from '@material-ui/core/styles';
+import { styles } from './styles/index';
 import Grid from '@material-ui/core/Grid';
 import Paper from '@material-ui/core/Paper';
 import background from '../../../../assets/styles/Background.module.css';
@@ -12,17 +13,17 @@ import OtherDetails from '../OtherDetails';
 import DetailsToggler from '../../../ui/Buttons/DetailsToggler';
 import ForecastToggler from '../../../ui/Buttons/ForecastToggler';
 
-const styles = theme => ({
-  desc: {
-    fontSize: '1.5rem',
-  },
-  background: {
-    background: 'transparent',
-  },
-  button: {
-    padding: theme.spacing.unit,
-  },
-});
+// const styles = theme => ({
+//   desc: {
+//     fontSize: '1.5rem',
+//   },
+//   background: {
+//     background: 'transparent',
+//   },
+//   button: {
+//     padding: theme.spacing.unit,
+//   },
+// });
 
 const Display = props => {
   const {

@@ -6,13 +6,7 @@ import BarChartIcon from '@material-ui/icons/BarChart';
 const DetailsToggler = props => {
   const { toggleDetails, showDetails } = props;
   return (
-    <Fab
-      color="primary"
-      aria-label="Add"
-      size="small"
-      // className={classes.fab}
-      onClick={toggleDetails}
-    >
+    <Fab color="primary" aria-label="Add" size="small" onClick={toggleDetails}>
       {showDetails ? (
         <CloudQueueIcon color="secondary" />
       ) : (

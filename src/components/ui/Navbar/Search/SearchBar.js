@@ -2,37 +2,13 @@ import React from 'react';
 import PropTypes from 'prop-types';
 // Styles
 import { withStyles } from '@material-ui/core/styles';
-import { fade } from '@material-ui/core/styles/colorManipulator';
+import { styles } from '../../styles/index';
 import InputBase from '@material-ui/core/InputBase';
 import IconButton from '@material-ui/core/IconButton';
 import SearchIcon from '@material-ui/icons/Search';
 import ArrowBack from '@material-ui/icons/ArrowBack';
 // Components
 import ErrorMessage from './ErrorMessage';
-
-const styles = theme => ({
-  root: {
-    width: '100%',
-    display: 'flex',
-  },
-  search: {
-    marginLeft: theme.spacing.unit,
-    position: 'relative',
-    borderRadius: theme.shape.borderRadius,
-    backgroundColor: fade(theme.palette.common.white, 0.15),
-    '&:hover': {
-      backgroundColor: fade(theme.palette.common.white, 0.25),
-    },
-  },
-  inputRoot: {
-    color: 'inherit',
-    width: 'auto',
-    padding: theme.spacing.unit,
-  },
-  inputInput: {
-    padding: theme.spacing.unit,
-  },
-});
 
 const SearchBar = props => {
   const { classes, getCurrentWeather, onReset, error } = props;

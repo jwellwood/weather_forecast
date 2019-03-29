@@ -2,18 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 // Styles
 import { withStyles } from '@material-ui/core';
-
-const styles = theme => ({
-  date: {
-    color: theme.palette.secondary.main,
-    textTransform: 'uppercase',
-    fontSize: '10px',
-  },
-  time: {
-    color: '#2ECC71',
-    fontSize: '14px',
-  },
-});
+import { styles } from './styles/index';
 
 const ForecastDate = props => {
   const { classes, date } = props;

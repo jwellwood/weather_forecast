@@ -2,41 +2,13 @@ import React from 'react';
 import PropTypes from 'prop-types';
 // Styles
 import { withStyles } from '@material-ui/core/styles';
+import { styles } from './styles/index';
 import Grid from '@material-ui/core/Grid';
 import Paper from '@material-ui/core/Paper';
 // Components
 import Container from '../../../hoc/Container';
 // Helpers
 import windDir from '../../../../helpers/windDirection';
-
-const styles = theme => ({
-  text: {
-    textTransform: 'uppercase',
-    fontSize: '12px',
-  },
-  tag: {
-    fontSize: '12px',
-    color: theme.palette.secondary.dark,
-    margin: '0 auto',
-    width: '30px',
-  },
-  value: {
-    fontSize: '15px',
-    color: theme.palette.secondary.light,
-    textAlign: 'right',
-    display: 'flex',
-    alignItems: 'center',
-  },
-  desc: {
-    fontSize: '20px',
-    fontWeight: 'bold',
-    margin: '10px auto',
-    textAlign: 'center',
-    width: '100%',
-    background: theme.palette.primary.dark,
-    color: theme.palette.secondary.main,
-  },
-});
 
 const DetailsList = props => {
   const { classes, details } = props;

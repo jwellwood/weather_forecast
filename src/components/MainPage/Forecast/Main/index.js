@@ -2,37 +2,9 @@ import React from 'react';
 import PropTypes from 'prop-types';
 // Styles
 import { withStyles } from '@material-ui/core/styles';
+import { styles } from './styles/index';
 import { iconColor } from '../../../../assets/styles/iconColor';
 import Grid from '@material-ui/core/Grid';
-
-const styles = theme => ({
-  root: {
-    fontSize: '22px',
-  },
-  icon: {
-    margin: '2px auto',
-    fontSize: '20px',
-    width: '40px',
-    height: '40px',
-    borderRadius: '50%',
-    lineHeight: '40px',
-    background: 'rgba(10,10,10,0.3)',
-  },
-  temp: {
-    paddingLeft: theme.spacing.unit,
-    paddingRight: theme.spacing.unit,
-  },
-  tempC: {
-    fontWeight: 'bold',
-  },
-  tempF: {
-    color: 'rgba(240,240,240,0.5)',
-    fontSize: '14px',
-  },
-  symbol: {
-    fontSize: '10px',
-  },
-});
 
 const Main = props => {
   const { classes, details } = props;

@@ -2,56 +2,13 @@ import React from 'react';
 import PropTypes from 'prop-types';
 // Styles
 import { withStyles } from '@material-ui/core/styles';
+import { styles } from './styles/index';
 import Paper from '@material-ui/core/Paper';
 // Animation
 import SplitText from 'react-pose-text';
+import { charPoses } from '../../../../helpers/Transitions';
 // Components
 import Container from '../../../hoc/Container';
-
-const styles = theme => ({
-  root: {
-    background: 'rgba(10, 10, 10, 0.5)',
-    padding: '0px 5px',
-    margin: '5px auto',
-  },
-  detailsBar: {
-    display: 'flex',
-    justifyContent: 'space-between',
-    color: theme.palette.secondary.light,
-  },
-  time: {
-    color: '#2ECC71',
-    background: 'rgba(20,20,20, 0.5)',
-    padding: '3px',
-  },
-  icons: {
-    fontSize: '15px',
-    width: '25px',
-    height: '25px',
-    borderRadius: '50%',
-    lineHeight: '25px',
-    textShadow: '1px 1px #222',
-    margin: '0px auto',
-  },
-  sun: {
-    fontSize: '12px',
-  },
-  sunrise: {
-    color: '#f5af19',
-  },
-  sunset: {
-    color: '#ff8819',
-  },
-});
-
-const charPoses = {
-  exit: { opacity: 0, y: 20 },
-  enter: {
-    opacity: 1,
-    y: 0,
-    delay: ({ charIndex }) => charIndex * 50,
-  },
-};
 
 const DateAndTime = props => {
   const { classes, date, time, sunrise, sunset } = props;
