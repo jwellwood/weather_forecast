@@ -6,11 +6,19 @@ import Grid from '@material-ui/core/Grid';
 import Paper from '@material-ui/core/Paper';
 // Components
 import Container from '../../../hoc/Container';
+// Helpers
+import windDir from '../../../../helpers/windDirection';
 
 const styles = theme => ({
   text: {
     textTransform: 'uppercase',
     fontSize: '12px',
+  },
+  tag: {
+    fontSize: '12px',
+    color: theme.palette.secondary.dark,
+    margin: '0 auto',
+    width: '30px',
   },
   value: {
     fontSize: '15px',
@@ -18,12 +26,6 @@ const styles = theme => ({
     textAlign: 'right',
     display: 'flex',
     alignItems: 'center',
-  },
-  tag: {
-    fontSize: '12px',
-    color: theme.palette.secondary.dark,
-    margin: '0 auto',
-    // width: '20px',
   },
   desc: {
     fontSize: '20px',
@@ -56,7 +58,7 @@ const DetailsList = props => {
     data('Pressure', pressure, 'hPa'),
     data('Humidity', humidity, '%'),
     data(' Wind Speed', windSpeed, 'kph'),
-    data('Wind Direction', windDirection, 'º'),
+    data('Wind Direction', windDir(windDirection), `${windDirection}º`),
   ];
 
   return (

@@ -3,8 +3,8 @@ import PropTypes from 'prop-types';
 import { withStyles } from '@material-ui/core/styles';
 import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
-import { IconButton, Grid } from '@material-ui/core';
-import HelpOutlineIcon from '@material-ui/icons/HelpOutline';
+import Grid from '@material-ui/core/Grid';
+import About from '../../MainPage/About';
 
 const styles = theme => ({
   appBar: {
@@ -30,9 +30,7 @@ const Footer = props => {
           alignItems="center"
         >
           <div>jwellwood 2019</div>
-          <IconButton color="secondary">
-            <HelpOutlineIcon />
-          </IconButton>
+          <About />
         </Grid>
       </Toolbar>
     </AppBar>

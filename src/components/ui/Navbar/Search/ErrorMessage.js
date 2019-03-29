@@ -27,7 +27,14 @@ const ErrorMessage = props => {
         ContentProps={{
           'aria-describedby': 'message-id',
         }}
-        message={<span id="message-id">No city found</span>}
+        message={
+          <span
+            id="message-id"
+            style={{ color: '#FF5722', fontWeight: 'bold' }}
+          >
+            No city found
+          </span>
+        }
         action={[
           <IconButton
             key="close"
